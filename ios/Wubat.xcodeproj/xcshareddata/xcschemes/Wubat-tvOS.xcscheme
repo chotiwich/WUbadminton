@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "WUBadmintonApp-tvOS.app"
-               BlueprintName = "WUBadmintonApp-tvOS"
-               ReferencedContainer = "container:WUBadmintonApp.xcodeproj">
+               BuildableName = "Wubat-tvOS.app"
+               BlueprintName = "Wubat-tvOS"
+               ReferencedContainer = "container:Wubat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "WUBadmintonApp-tvOSTests.xctest"
-               BlueprintName = "WUBadmintonApp-tvOSTests"
-               ReferencedContainer = "container:WUBadmintonApp.xcodeproj">
+               BuildableName = "Wubat-tvOSTests.xctest"
+               BlueprintName = "Wubat-tvOSTests"
+               ReferencedContainer = "container:Wubat.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "WUBadmintonApp-tvOS.app"
-            BlueprintName = "WUBadmintonApp-tvOS"
-            ReferencedContainer = "container:WUBadmintonApp.xcodeproj">
+            BuildableName = "Wubat-tvOS.app"
+            BlueprintName = "Wubat-tvOS"
+            ReferencedContainer = "container:Wubat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "WUBadmintonApp-tvOS.app"
-            BlueprintName = "WUBadmintonApp-tvOS"
-            ReferencedContainer = "container:WUBadmintonApp.xcodeproj">
+            BuildableName = "Wubat-tvOS.app"
+            BlueprintName = "Wubat-tvOS"
+            ReferencedContainer = "container:Wubat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
