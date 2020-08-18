@@ -15,6 +15,10 @@ const CustomSidebarMenu = props => {
       screenToNavigate: 'HomeScreen',
     },
     {
+      navOptionName: 'checkincheckout',
+      screenToNavigate: 'checkincheckout',
+    },
+    {
       navOptionName: 'Setting Screen',
       screenToNavigate: 'SettingsScreen',
     },
@@ -62,7 +66,7 @@ const CustomSidebarMenu = props => {
             {'About React'.charAt(0)}
           </Text>
         </View>
-        <Text style={stylesSidebar.profileHeaderText}>AboutReact</Text>
+        <Text style={stylesSidebar.profileHeaderText}>Chotiwich Waradach</Text>
       </View>
       <View style={stylesSidebar.profileHeaderLine} />
       <View style={{ width: '100%', flex: 1 }}>
@@ -75,8 +79,8 @@ const CustomSidebarMenu = props => {
               color: 'white',
               backgroundColor:
                 global.currentScreenIndex === item.screenToNavigate
-                  ? '#4b9ff2'
-                  : '#307ecc',
+                  ? '#7d539d'
+                  : '#7d539d',
             }}
             key={key}
             onStartShouldSetResponder={() =>
@@ -96,13 +100,13 @@ const stylesSidebar = StyleSheet.create({
   sideMenuContainer: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#7d539d',
     paddingTop: 40,
     color: 'white',
   },
   profileHeader: {
     flexDirection: 'row',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#f36a3c',
     padding: 15,
     textAlign: 'center',
   },
@@ -111,7 +115,7 @@ const stylesSidebar = StyleSheet.create({
     height: 60,
     borderRadius: 60 / 2,
     color: 'white',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'white',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',

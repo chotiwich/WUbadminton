@@ -7,16 +7,15 @@ import React from 'react';
 //Import all required component
 import { View, Text } from 'react-native';
 
-const HomeScreen = () => {
-  global.currentScreenIndex = 'HomeScreen';
+const checkincheckout = () => {
   return (
     <View style={{ flex: 1, alignItems: 'center', marginTop: 100 }}>
-      <Text style={{ fontSize: 23, marginTop: 10 }}>WU Badminton Court</Text>
+      <Text style={{ fontSize: 23, marginTop: 10 }}>Checkin Screen</Text>
       <Text style={{ fontSize: 18, marginTop: 10 }}>
-        สนามกีฬาแบดมินตัน มหาวิทยาลัยวลัยลักษณ์
+        Simple Login Registraction Example
       </Text>
       <Text style={{ fontSize: 18, marginTop: 10 }}>https://aboutreact</Text>
     </View>
   );
 };
-export default HomeScreen;
+export default checkincheckout;

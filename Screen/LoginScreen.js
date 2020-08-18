@@ -76,20 +76,18 @@ const LoginScreen = props => {
 
   return (
     <View style={styles.mainBody}>
-      <Image style= { styles.backgroundImage } source={require('../Image/bangkok.jpg')}>
-      </Image>
       <Loader loading={loading} />
       <ScrollView keyboardShouldPersistTaps="handled">
         <View style={{ marginTop: 100 }}>
           <KeyboardAvoidingView enabled>
             <View style={{ alignItems: 'center' }}>
               <Image
-                source={require('../Image/wulogo01.png')}
+                source={require('../Image/wubadlogo.png')}
                 style={{
-                  width: '50%',
-                  height: 100,
+                  width: 200,
+                  height: 200,
                   resizeMode: 'contain',
-                  margin: 30,
+                  margin: 50,
                 }}
               />
             </View>
@@ -97,9 +95,8 @@ const LoginScreen = props => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserEmail => setUserEmail(UserEmail)}
-                underlineColorAndroid="#FFFFFF"
-                placeholder="Enter Email" //dummy@abc.com
-                placeholderTextColor="#F6F6F7"
+                placeholder="ชื่อผู้เข้าใช้" //dummy@abc.com
+                placeholderTextColor="#f36a3c"
                 autoCapitalize="none"
                 keyboardType="email-address"
                 ref={ref => {
@@ -116,9 +113,8 @@ const LoginScreen = props => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserPassword => setUserPassword(UserPassword)}
-                underlineColorAndroid="#FFFFFF"
-                placeholder="Enter Password" //12345
-                placeholderTextColor="#F6F6F7"
+                placeholder="รหัสผ่าน" //12345
+                placeholderTextColor="#f36a3c"
                 keyboardType="default"
                 ref={ref => {
                   this._passwordinput = ref;
@@ -154,7 +150,7 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#ffffff',
   },
   SectionStyle: {
     flexDirection: 'row',
@@ -178,21 +174,21 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonTextStyle: {
-    color: '#FFFFFF',
+    color: '#5e3881',
     paddingVertical: 10,
     fontSize: 16,
   },
   inputStyle: {
     flex: 1,
-    color: 'white',
+    color: 'black',
     paddingLeft: 15,
     paddingRight: 15,
     borderWidth: 1,
     borderRadius: 30,
-    borderColor: 'white',
+    borderColor: '#5e3881',
   },
   registerTextStyle: {
-    color: '#FFFFFF',
+    color: '#5e3881',
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 14,
