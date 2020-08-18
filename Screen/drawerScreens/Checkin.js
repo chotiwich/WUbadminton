@@ -7,10 +7,10 @@ import React from 'react';
 //Import all required component
 import { View, Text } from 'react-native';
 
-const checkincheckout = () => {
+const Checkin = () => {
   return (
     <View style={{ flex: 1, alignItems: 'center', marginTop: 100 }}>
-      <Text style={{ fontSize: 23, marginTop: 10 }}>Checkin Screen</Text>
+      <Text style={{ fontSize: 23, marginTop: 10 }}>Checkin </Text>
       <Text style={{ fontSize: 18, marginTop: 10 }}>
         Simple Login Registraction Example
       </Text>
@@ -18,4 +18,4 @@ const checkincheckout = () => {
     </View>
   );
 };
-export default checkincheckout;
+export default Checkin;

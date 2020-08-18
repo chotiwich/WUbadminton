@@ -10,7 +10,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 
 //Import External Screens
 import HomeScreen from './drawerScreens/HomeScreen';
-import checkincheckout from './drawerScreens/checkincheckout';
+import Checkin from './drawerScreens/Checkin';
 import SettingsScreen from './drawerScreens/SettingsScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
@@ -45,9 +45,9 @@ const SecondActivity_StackNavigator = createStackNavigator({
 
 const thirdActivity_StackNavigator = createStackNavigator({
   First: {
-    screen: checkincheckout,
+    screen: Checkin,
     navigationOptions: ({ navigation }) => ({
-      title: 'Checkincheckout',
+      title: 'Checkin',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -71,10 +71,10 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
         drawerLabel: 'Setting Screen',
       },
     },
-    checkincheckout: {
+    Checkin: {
       screen: thirdActivity_StackNavigator,
       navigationOptions: {
-        drawerLabel: 'checkincheckout',
+        drawerLabel: 'Checkin',
       },
     },
 
