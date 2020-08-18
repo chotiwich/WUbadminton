@@ -11,19 +11,23 @@ import AsyncStorage from '@react-native-community/async-storage';
 const CustomSidebarMenu = props => {
   let items = [
     {
-      navOptionName: 'Home Screen',
+      navOptionName: 'หน้าหลัก',
       screenToNavigate: 'HomeScreen',
     },
     {
-      navOptionName: 'Checkin',
+      navOptionName: 'จองสนาม',
+      screenToNavigate: 'Bookcourt',
+    },
+    {
+      navOptionName: 'เช็คอิน',
       screenToNavigate: 'Checkin',
     },
     {
-      navOptionName: 'Setting Screen',
+      navOptionName: 'การตั้งค่า',
       screenToNavigate: 'SettingsScreen',
     },
     {
-      navOptionName: 'Logout',
+      navOptionName: 'ออกจากระบบ',
       screenToNavigate: 'logout',
     },
   ];

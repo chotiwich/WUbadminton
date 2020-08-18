@@ -11,6 +11,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 //Import External Screens
 import HomeScreen from './drawerScreens/HomeScreen';
 import Checkin from './drawerScreens/Checkin';
+import Bookcourt from './drawerScreens/ิBookcourt';
 import SettingsScreen from './drawerScreens/SettingsScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
@@ -19,7 +20,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
   First: {
     screen: HomeScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Home Screen',
+      title: 'WU Badminton Court',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -33,7 +34,7 @@ const SecondActivity_StackNavigator = createStackNavigator({
   First: {
     screen: SettingsScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Setting Screen',
+      title: 'การตั้งค่า',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -47,7 +48,21 @@ const thirdActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Checkin,
     navigationOptions: ({ navigation }) => ({
-      title: 'Checkin',
+      title: 'การเช็คอิน',
+      headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#5e3881',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const fourActivity_StackNavigator = createStackNavigator({
+  First: {
+    screen: Bookcourt,
+    navigationOptions: ({ navigation }) => ({
+      title: 'จองสนาม',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -63,6 +78,12 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
       screen: FirstActivity_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Home Screen',
+      },
+    },
+    Bookcourt: {
+      screen: fourActivity_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Bookcourt',
       },
     },
     SettingsScreen: {
