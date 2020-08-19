@@ -1,21 +1,36 @@
-/* This is an Login Registration example from https://aboutreact.com/ */
-/* https://aboutreact.com/react-native-login-and-signup/ */
+//This is an example code to show React Native Round Shape Image//
+import React, { Component } from 'react';
+//import react in our code. 
 
-//Import React
-import React from 'react';
+import { Platform, StyleSheet, View, Image, Text } from 'react-native';
+//import all the components we are going to use. 
 
-//Import all required component
-import { View, Text } from 'react-native';
 
-const Schedule = () => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', marginTop: 100 }}>
-      <Text style={{ fontSize: 23, marginTop: 10 }}> ข้อมูลการแข่งขัน </Text>
-      <Text style={{ fontSize: 18, marginTop: 10 }}>
-        Simple Login Registraction Example
-      </Text>
-      <Text style={{ fontSize: 18, marginTop: 10 }}>https://aboutreact</Text>
-    </View>
-  );
-};
-export default Schedule ;
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.MainContainer}>
+        <Image
+          source={{uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',}}
+          //borderRadius style will help us make the Round Shape Image
+          style={{ width: 200, height: 200, borderRadius: 200 / 2 }}
+        />
+        <Text style={styles.text}>About React</Text>
+      </View>
+    );
+  }
+}
+const styles = StyleSheet.create({
+  MainContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#e0dcdc',
+  },
+  text: {
+    marginTop: 30,
+    fontSize: 40,
+    color: '#0250a3',
+    fontWeight: 'bold',
+  },
+});
