@@ -7,10 +7,10 @@ import React from 'react';
 //Import all required component
 import { View, Text } from 'react-native';
 
-const Borrow = () => {
+const Rebad = () => {
   return (
     <View style={{ flex: 1, alignItems: 'center', marginTop: 100 }}>
-      <Text style={{ fontSize: 23, marginTop: 10 }}> Borrow </Text>
+      <Text style={{ fontSize: 23, marginTop: 10 }}> คืนอุปกรณ์ </Text>
       <Text style={{ fontSize: 18, marginTop: 10 }}>
         Simple Login Registraction Example
       </Text>
@@ -18,4 +18,4 @@ const Borrow = () => {
     </View>
   );
 };
-export default Borrow ;
+export default Rebad ;

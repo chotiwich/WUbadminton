@@ -12,9 +12,13 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import HomeScreen from './drawerScreens/HomeScreen';
 import Checkin from './drawerScreens/Checkin';
 import Bookcourt from './drawerScreens/ิBookcourt';
+import Borrow from './drawerScreens/Borrow';
+import Rebad from './drawerScreens/Rebad';
+import Schedule from './drawerScreens/Schedule';
 import SettingsScreen from './drawerScreens/SettingsScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
+
 
 const FirstActivity_StackNavigator = createStackNavigator({
   First: {
@@ -48,7 +52,7 @@ const thirdActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Checkin,
     navigationOptions: ({ navigation }) => ({
-      title: 'การเช็คอิน',
+      title: 'เช็คอิน',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -63,6 +67,48 @@ const fourActivity_StackNavigator = createStackNavigator({
     screen: Bookcourt,
     navigationOptions: ({ navigation }) => ({
       title: 'จองสนาม',
+      headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#5e3881',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const fiveActivity_StackNavigator = createStackNavigator({
+  First: {
+    screen: Borrow,
+    navigationOptions: ({ navigation }) => ({
+      title: 'ยืมอุปกรณ์',
+      headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#5e3881',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const sixActivity_StackNavigator = createStackNavigator({
+  First: {
+    screen: Rebad,
+    navigationOptions: ({ navigation }) => ({
+      title: 'คืนอุปกรณ์',
+      headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#5e3881',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const sevenActivity_StackNavigator = createStackNavigator({
+  First: {
+    screen: Schedule,
+    navigationOptions: ({ navigation }) => ({
+      title: 'ข้อมูลการแข่งขัน',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -96,6 +142,24 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
       screen: thirdActivity_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Checkin',
+      },
+    },
+    Borrow: {
+      screen: fiveActivity_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Borrow',
+      },
+    },
+    Rebad: {
+      screen: sixActivity_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Rebad',
+      },
+    },
+    Schedule: {
+      screen: sevenActivity_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Schedule',
       },
     },
 

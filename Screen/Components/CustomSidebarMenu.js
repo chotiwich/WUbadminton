@@ -23,6 +23,18 @@ const CustomSidebarMenu = props => {
       screenToNavigate: 'Checkin',
     },
     {
+      navOptionName: 'ยืมอุปกรณ์',
+      screenToNavigate: 'Borrow',
+    },
+    {
+      navOptionName: 'คืนอุปกรณ์',
+      screenToNavigate: 'Rebad',
+    },
+    {
+      navOptionName: 'ข้อมูลการแข่งขัน',
+      screenToNavigate: 'Schedule',
+    },
+    {
       navOptionName: 'การตั้งค่า',
       screenToNavigate: 'SettingsScreen',
     },
