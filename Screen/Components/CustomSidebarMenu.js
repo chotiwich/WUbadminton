@@ -5,8 +5,9 @@
 import React from 'react';
 
 //Import all required component
-import { View, StyleSheet, Text, Alert } from 'react-native';
+import { View, StyleSheet, Text, Alert, _ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const CustomSidebarMenu = props => {
   let items = [
@@ -79,11 +80,12 @@ const CustomSidebarMenu = props => {
     }
   };
   return (
+    <ScrollView>
     <View style={stylesSidebar.sideMenuContainer}>
       <View style={stylesSidebar.profileHeader}>
         <View style={stylesSidebar.profileHeaderPicCircle}>
           <Text style={{ fontSize: 25, color: '#307ecc' }}>
-            {'About React'.charAt(0)}
+            {'C'.charAt(0)}
           </Text>
         </View>
         <Text style={stylesSidebar.profileHeaderText}>Chotiwich Waradach</Text>
@@ -113,6 +115,7 @@ const CustomSidebarMenu = props => {
         ))}
       </View>
     </View>
+    </ScrollView>
   );
 };
 

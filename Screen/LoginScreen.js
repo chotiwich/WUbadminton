@@ -77,7 +77,7 @@ const LoginScreen = props => {
 
   return (
     <ImageBackground 
-    source={require('F:/application/WUbadminton/Image/back01.jpg')}
+    source={require('../Image/back01.jpg')}
     style={{flex: 1,
       resizeMode: "cover",
       justifyContent: "center"}} 

@@ -11,7 +11,8 @@ const HomeScreen = () => {
   global.currentScreenIndex = '>WU Badminton Court';
   return (
     <ImageBackground 
-    source={require('F:/application/WUbadminton/Image/back01.jpg')}
+    source={require('D:/application/WUbadminton/Image/back01.jpg')}
+
     style={{flex: 1,
       resizeMode: "cover",
       justifyContent: "center"}} 
