@@ -15,6 +15,7 @@ import Bookcourt from './drawerScreens/ิBookcourt';
 import Borrow from './drawerScreens/Borrow';
 import Rebad from './drawerScreens/Rebad';
 import Schedule from './drawerScreens/Schedule';
+import Profile from './drawerScreens/Profile';
 import SettingsScreen from './drawerScreens/SettingsScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
@@ -118,12 +119,32 @@ const sevenActivity_StackNavigator = createStackNavigator({
   },
 });
 
+const eightActivity_StackNavigator = createStackNavigator({
+  First: {
+    screen: Profile,
+    navigationOptions: ({ navigation }) => ({
+      title: 'ข้อมูลผู้ใช้',
+      headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#5e3881',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const DrawerNavigatorRoutes = createDrawerNavigator(
   {
     HomeScreen: {
       screen: FirstActivity_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Home Screen',
+      },
+    },
+    Profile: {
+      screen: eightActivity_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Profile',
       },
     },
     Bookcourt: {

@@ -116,12 +116,12 @@ const RegisterScreen = props => {
       <ScrollView keyboardShouldPersistTaps="handled">
         <View style={{ alignItems: 'center' }}>
           <Image
-            source={require('../Image/intro01.png')}
+            source={require('../Image/wubadlogo.png')}
             style={{
-              width: '50%',
-              height: 100,
+              width: 200,
+              height: 200,
               resizeMode: 'contain',
-              margin: 30,
+              margin: 50,
             }}
           />
         </View>

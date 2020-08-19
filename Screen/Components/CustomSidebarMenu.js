@@ -15,6 +15,10 @@ const CustomSidebarMenu = props => {
       screenToNavigate: 'HomeScreen',
     },
     {
+      navOptionName: 'ข้อมูลผู้ใช้',
+      screenToNavigate: 'Profile',
+    },
+    {
       navOptionName: 'จองสนาม',
       screenToNavigate: 'Bookcourt',
     },
