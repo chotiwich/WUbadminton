@@ -13,6 +13,7 @@ import {
   ScrollView,
   Image,
   Keyboard,
+  ImageBackground,
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
@@ -75,6 +76,12 @@ const LoginScreen = props => {
   };
 
   return (
+    <ImageBackground 
+    source={require('F:/application/WUbadminton/Image/back01.jpg')}
+    style={{flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center"}} 
+    >
     <View style={styles.mainBody}>
       <Loader loading={loading} />
       <ScrollView keyboardShouldPersistTaps="handled">
@@ -95,8 +102,8 @@ const LoginScreen = props => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserEmail => setUserEmail(UserEmail)}
-                placeholder="ชื่อผู้เข้าใช้" //dummy@abc.com
-                placeholderTextColor="#f36a3c"
+                placeholder="Username" //dummy@abc.com
+                placeholderTextColor="#ffffff"
                 autoCapitalize="none"
                 keyboardType="email-address"
                 ref={ref => {
@@ -113,8 +120,8 @@ const LoginScreen = props => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserPassword => setUserPassword(UserPassword)}
-                placeholder="รหัสผ่าน" //12345
-                placeholderTextColor="#f36a3c"
+                placeholder="Password" //12345
+                placeholderTextColor="#ffffff"
                 keyboardType="default"
                 ref={ref => {
                   this._passwordinput = ref;
@@ -142,6 +149,7 @@ const LoginScreen = props => {
         </View>
       </ScrollView>
     </View>
+    </ImageBackground>
   );
 };
 export default LoginScreen;
@@ -150,7 +158,7 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
+    
   },
   SectionStyle: {
     flexDirection: 'row',
@@ -161,7 +169,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#ffffff',
     borderWidth: 0,
     color: '#FFFFFF',
     borderColor: '#7DE24E',

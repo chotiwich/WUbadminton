@@ -1,7 +1,7 @@
 //Example Multiple select / Dropdown / Picker in React Native
 import React, { Component } from 'react';
 //Import React
-import { View, Text, Picker, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, Picker, StyleSheet, SafeAreaView,ImageBackground } from 'react-native';
 //Import basic react native components
 import MultiSelect from 'react-native-multiple-select';
 //Import MultiSelect library
@@ -51,6 +51,7 @@ export default class App extends Component {
     const { selectedItems } = this.state;
     // const { selectedCourt } = this.state;
     return (
+      
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{ flex: 1, padding: 20 }}>
           <MultiSelect
