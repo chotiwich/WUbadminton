@@ -68,13 +68,13 @@ export default class App extends Component {
             onChangeInput={text => console.log(text)}
             tagRemoveIconColor="#CCC"
             tagBorderColor="#CCC"
-            tagTextColor="#CCC"
-            selectedItemTextColor="#CCC"
-            selectedItemIconColor="#CCC"
+            tagTextColor="#5e3881"
+            selectedItemTextColor="#5e3881"
+            selectedItemIconColor="#5e3881"
             itemTextColor="#000"
             displayKey="name"
             searchInputStyle={{ color: '#CCC' }}
-            submitButtonColor="#48d22b"
+            submitButtonColor="#5e3881"
             submitButtonText="Submit"
           />
         </View>

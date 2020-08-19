@@ -6,6 +6,7 @@ import React from 'react';
 
 //Import all required component
 import { View, Text,ImageBackground,Button } from 'react-native';
+import { Table, Row, Rows } from 'react-native-table-component';
 
 const Profile = ({navigation}) => {
   global.currentScreenIndex = '>WU Badminton Court';
