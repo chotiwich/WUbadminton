@@ -102,8 +102,8 @@ const LoginScreen = props => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserEmail => setUserEmail(UserEmail)}
-                placeholder="ชื่อผู้เข้าใช้" //dummy@abc.com
-                placeholderTextColor="#f36a3c"
+                placeholder="Username" //dummy@abc.com
+                placeholderTextColor="#ffffff"
                 autoCapitalize="none"
                 keyboardType="email-address"
                 ref={ref => {
@@ -120,8 +120,8 @@ const LoginScreen = props => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserPassword => setUserPassword(UserPassword)}
-                placeholder="รหัสผ่าน" //12345
-                placeholderTextColor="#f36a3c"
+                placeholder="Password" //12345
+                placeholderTextColor="#ffffff"
                 keyboardType="default"
                 ref={ref => {
                   this._passwordinput = ref;
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#ffffff',
     borderWidth: 0,
     color: '#FFFFFF',
     borderColor: '#7DE24E',
