@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
     color: 'black', 
     fontSize: 24, 
     alignSelf: 'center', 
-    padding: 5, 
-    marginTop: 10 ,
+    padding: 10, 
+    marginTop: 20 
   },
   simpleText: { 
     color: 'black', 
