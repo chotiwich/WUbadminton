@@ -5,13 +5,13 @@
 import React from 'react';
 
 //Import all required component
-import { View, Text,ImageBackground } from 'react-native';
+import { View, Text,ImageBackground,Button } from 'react-native';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   global.currentScreenIndex = '>WU Badminton Court';
   return (
     <ImageBackground 
-    source={require('D:/application/WUbadminton/Image/back01.jpg')}
+    source={require('F:/application/WUbadminton/Image/back07.png')}
     style={{flex: 1,
       resizeMode: "cover",
       justifyContent: "center"}} 
@@ -25,8 +25,16 @@ const Profile = () => {
       <Text style={{ fontSize: 20, marginTop: 15 ,marginLeft:15,color: '#5e3881' }}>ข้อมูลหน่วยงาน</Text>
       <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>อาชีพ         นักศึกษา</Text>
       <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>E-mail        chotiwich6793@gmail.com</Text>
-      <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>รหัสผ่าน     1849901391378</Text>
+      <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>รหัสผ่าน     1212312121</Text>
       <Text style={{ fontSize: 20, marginTop: 15 ,marginLeft:15,color: '#5e3881' }}>ข้อมูลการจอง</Text>
+      <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>20/08/2563     15.30 - 16.00 น.  COURT 1</Text>
+      <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>20/08/2563     16.30 - 17.00 น.  COURT 3</Text>
+      <Text style={{ fontSize: 16, marginTop: 5 ,marginLeft:50 }}></Text>
+      <Button
+            title="แก้ไขข้อมูล"
+            color="#5e3881"
+            onPress={() =>navigation.navigate('')}
+          />
     </View>
     </ImageBackground>
   );

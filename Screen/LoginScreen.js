@@ -77,7 +77,7 @@ const LoginScreen = props => {
 
   return (
     <ImageBackground 
-    source={require('../Image/back01.jpg')}
+    source={require('F:/application/WUbadminton/Image/back07.png')}
     style={{flex: 1,
       resizeMode: "cover",
       justifyContent: "center"}} 
@@ -103,7 +103,7 @@ const LoginScreen = props => {
                 style={styles.inputStyle}
                 onChangeText={UserEmail => setUserEmail(UserEmail)}
                 placeholder="Username" //dummy@abc.com
-                placeholderTextColor="#ffffff"
+                placeholderTextColor="#5e3881"
                 autoCapitalize="none"
                 keyboardType="email-address"
                 ref={ref => {
@@ -121,7 +121,7 @@ const LoginScreen = props => {
                 style={styles.inputStyle}
                 onChangeText={UserPassword => setUserPassword(UserPassword)}
                 placeholder="Password" //12345
-                placeholderTextColor="#ffffff"
+                placeholderTextColor="#5e3881"
                 keyboardType="default"
                 ref={ref => {
                   this._passwordinput = ref;
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#5e3881',
     borderWidth: 0,
     color: '#FFFFFF',
     borderColor: '#7DE24E',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonTextStyle: {
-    color: '#5e3881',
+    color: '#ffffff',
     paddingVertical: 10,
     fontSize: 16,
   },

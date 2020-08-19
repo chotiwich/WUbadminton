@@ -5,13 +5,13 @@
 import React from 'react';
 
 //Import all required component
-import { View, Text,ImageBackground } from 'react-native';
+import { View, Text,ImageBackground ,Button } from 'react-native';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   global.currentScreenIndex = '>WU Badminton Court';
   return (
     <ImageBackground 
-    source={require('D:/application/WUbadminton/Image/back01.jpg')}
+    source={require('F:/application/WUbadminton/Image/back07.png')}
 
     style={{flex: 1,
       resizeMode: "cover",
@@ -34,6 +34,18 @@ const HomeScreen = () => {
       <Text style={{ fontSize: 20, marginTop: 15 ,marginLeft:15,color: '#5e3881' }}>เวลาเปิดทำการ</Text>
       <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>วันจันทร์ - วันศุกร์ 15.00 - 21.00 น.</Text>
       <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>หยุดวันเสาร์-อาทิตย์ และวันหยุดนักขัตฤกษ์</Text>
+      <Text style={{ fontSize: 20, marginTop: 20 ,marginLeft:15,color: '#5e3881' }}></Text>
+      <Button
+            title="เช็คอิน"
+            color="#5e3881"
+            onPress={() =>navigation.navigate('Checkin')}
+          />
+      <Text style={{ fontSize: 10, marginTop: 0 ,marginLeft:15,color: '#5e3881' }}></Text>
+      <Button
+            title="จองสนาม"
+            color="#5e3881"
+            onPress={() =>navigation.navigate('Bookcourt')}
+          />
     </View>
     </ImageBackground>
   );
