@@ -13,6 +13,7 @@ import {
   ScrollView,
   Image,
   Keyboard,
+  ImageBackground,
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
@@ -75,6 +76,12 @@ const LoginScreen = props => {
   };
 
   return (
+    <ImageBackground 
+    source={require('F:/application/WUbadminton/Image/back01.jpg')}
+    style={{flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center"}} 
+    >
     <View style={styles.mainBody}>
       <Loader loading={loading} />
       <ScrollView keyboardShouldPersistTaps="handled">
@@ -142,6 +149,7 @@ const LoginScreen = props => {
         </View>
       </ScrollView>
     </View>
+    </ImageBackground>
   );
 };
 export default LoginScreen;
@@ -150,7 +158,7 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
+    
   },
   SectionStyle: {
     flexDirection: 'row',
