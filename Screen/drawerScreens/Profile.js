@@ -32,6 +32,12 @@ const Profile = ({navigation}) => {
       <Text style={{ fontSize: 16, marginTop: 10 ,marginLeft:50 }}>20/08/2563     16.30 - 17.00 น.  COURT 3</Text>
       <Text style={{ fontSize: 16, marginTop: 5 ,marginLeft:50 }}></Text>
       <Button
+            title="สถิติ"
+            color="#5e3881"
+            onPress={() =>navigation.navigate('Graph')}
+          />
+      <Text style={{ fontSize: 16, marginTop: 5 ,marginLeft:50 }}></Text>
+      <Button
             title="แก้ไขข้อมูล"
             color="#5e3881"
             onPress={() =>navigation.navigate('')}

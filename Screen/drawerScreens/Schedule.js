@@ -1,36 +1,96 @@
-//This is an example code to show React Native Round Shape Image//
-import React, { Component } from 'react';
-//import react in our code. 
+/* This is an Login Registration example from https://aboutreact.com/ */
+/* https://aboutreact.com/react-native-login-and-signup/ */
 
-import { Platform, StyleSheet, View, Image, Text } from 'react-native';
-//import all the components we are going to use. 
+//Import React
+import React from 'react';
+
+//Import all required component
+import 'react-native-gesture-handler';
+import { View, Text,Image,StyleSheet,TouchableOpacity, Button,ScrollView, ImageBackground } from 'react-native';
+import { Slide } from 'react-slideshow-image';
 
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.MainContainer}>
-        <Image
-          source={{uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',}}
-          //borderRadius style will help us make the Round Shape Image
-          style={{ width: 200, height: 200, borderRadius: 200 / 2 }}
-        />
-        <Text style={styles.text}>About React</Text>
-      </View>
-    );
-  }
+const Schedule =({navigation}) =>{
+  global.currentScreenIndex = 'Schedule';
+  
+  return (
+    <ImageBackground source={require('F:/application/WUbadminton/Image/back07.png')}
+    style={{flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center"}} 
+    >
+    <View style={styles.container}> 
+      <ScrollView>
+            <Image
+              style={styles.logo}
+              source={require('F:/application/WUbadminton/Image/poster01.jpg')}
+            />
+            <Button
+                style={styles.buttonStyle}
+                title="Go to Details"
+                onPress={() => navigation.navigate('Schedule')}
+              />
+             <Image
+              style={styles.logo}
+              source={require('F:/application/WUbadminton/Image/poster02.jpg')}
+            />
+            <Button
+                style={styles.buttonStyle}
+                title="Go to Details"
+                onPress={() => navigation.navigate('Schedule')}
+              />
+             <Image
+              style={styles.logo}
+              source={require('F:/application/WUbadminton/Image/poster03.jpg')}
+            />
+            <Button
+                style={styles.buttonStyle}
+                title="Go to Details"
+                onPress={() => navigation.navigate('Schedule')}
+              />
+             <Image
+              style={styles.logo}
+              source={require('F:/application/WUbadminton/Image/poster04.jpg')}
+            />
+             <Button
+                style={styles.buttonStyle}
+                title="Go to Details"
+                onPress={() => navigation.navigate('Schedule')}
+              />
+        </ScrollView>
+    </View>
+    </ImageBackground>
+  );
 }
+export default Schedule;
+
 const styles = StyleSheet.create({
-  MainContainer: {
+  container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e0dcdc',
+    justifyContent: 'center',
   },
-  text: {
-    marginTop: 30,
-    fontSize: 40,
-    color: '#0250a3',
-    fontWeight: 'bold',
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+  logo: {
+    width: 350,
+    height: 500,
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  buttonStyle: {
+    backgroundColor: '#5e3881',
+    borderWidth: 0,
+    color: '#5e3881',
+    borderColor: '#5e3881',
+    height: 40,
+    alignItems: 'center',
+    borderRadius: 30,
+    marginLeft: 35,
+    marginRight: 35,
+    marginTop: 20,
+    marginBottom: 20,
   },
 });

@@ -16,6 +16,7 @@ import Borrow from './drawerScreens/Borrow';
 import Rebad from './drawerScreens/Rebad';
 import Schedule from './drawerScreens/Schedule';
 import Profile from './drawerScreens/Profile';
+import Graph from './drawerScreens/Graph';
 import SettingsScreen from './drawerScreens/SettingsScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
@@ -133,6 +134,20 @@ const eightActivity_StackNavigator = createStackNavigator({
   },
 });
 
+const nineActivity_StackNavigator = createStackNavigator({
+  First: {
+    screen: Graph,
+    navigationOptions: ({ navigation }) => ({
+      title: 'สถิติต่าง ๆ',
+      headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#5e3881',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const DrawerNavigatorRoutes = createDrawerNavigator(
   {
     HomeScreen: {
@@ -179,6 +194,12 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
     },
     Schedule: {
       screen: sevenActivity_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Schedule',
+      },
+    },
+    Graph: {
+      screen: nineActivity_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Schedule',
       },
