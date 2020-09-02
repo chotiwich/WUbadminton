@@ -14,7 +14,7 @@ const Schedule =({navigation}) =>{
   global.currentScreenIndex = 'Schedule';
   
   return (
-    <ImageBackground source={require('F:/application/WUbadminton/Image/back07.png')}
+    <ImageBackground source={require('D:/application/WUbadminton/Image/back07.png')}
     style={{flex: 1,
       resizeMode: "cover",
       justifyContent: "center"}} 
@@ -23,7 +23,7 @@ const Schedule =({navigation}) =>{
       <ScrollView>
             <Image
               style={styles.logo}
-              source={require('F:/application/WUbadminton/Image/poster01.jpg')}
+              source={require('D:/application/WUbadminton/Image/poster01.jpg')}
             />
             <Button
                 style={styles.buttonStyle}
@@ -32,7 +32,7 @@ const Schedule =({navigation}) =>{
               />
              <Image
               style={styles.logo}
-              source={require('F:/application/WUbadminton/Image/poster02.jpg')}
+              source={require('D:/application/WUbadminton/Image/poster02.jpg')}
             />
             <Button
                 style={styles.buttonStyle}
@@ -41,7 +41,7 @@ const Schedule =({navigation}) =>{
               />
              <Image
               style={styles.logo}
-              source={require('F:/application/WUbadminton/Image/poster03.jpg')}
+              source={require('D:/application/WUbadminton/Image/poster03.jpg')}
             />
             <Button
                 style={styles.buttonStyle}
@@ -50,7 +50,7 @@ const Schedule =({navigation}) =>{
               />
              <Image
               style={styles.logo}
-              source={require('F:/application/WUbadminton/Image/poster04.jpg')}
+              source={require('D:/application/WUbadminton/Image/poster04.jpg')}
             />
              <Button
                 style={styles.buttonStyle}
