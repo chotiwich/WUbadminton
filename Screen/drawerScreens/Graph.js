@@ -1,192 +1,189 @@
-/* This is an Login Registration example from https://aboutreact.com/ */
-/* https://aboutreact.com/react-native-login-and-signup/ */
+import * as React from 'react';
+//import React
+import {Text, View, StyleSheet, Dimensions, ScrollView} from 'react-native';
+//import Basic React Native Components
 
-//Import React
-import React from 'react';
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart,
+} from 'react-native-chart-kit';
+//import React Native chart Kit for different kind of Chart
 
-//Import all required component
-import { View, Text } from 'react-native';
+export default class App extends React.Component {
+  render() {
+    return (
+      <ScrollView>
+        <View style={styles.container}>
+          <View>
+            {/*Example of Bezier LineChart*/}
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 18,
+                padding: 16,
+                marginTop: 16,
+              }}>
+              Player Statistics
+            </Text>
+            <LineChart
+              data={{
+                labels: [
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                  'May',
+                  'June',
+                ],
+                datasets: [
+                  {
+                    data: [
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                    ],
+                  },
+                ],
+              }}
+              width={Dimensions.get('window').width - 15} // from react-native
+              height={220}
+              yAxisLabel={' Time '}
+              chartConfig={{
+                backgroundColor: '#1cc910',
+                backgroundGradientFrom: '#eff3ff',
+                backgroundGradientTo: '#efefef',
+                decimalPlaces: 2, // optional, defaults to 2dp
+                color: (opacity = 255) => `rgba(0, 0, 0, ${opacity})`,
+                style: {
+                  borderRadius: 16,
+                },
+              }}
+              bezier
+              style={{
+                marginVertical: 8,
+                borderRadius: 16,
+              }}
+            />
 
-const Graph = () => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', marginTop: 100 }}>
-      <Text style={{ fontSize: 23, marginTop: 10 }}> Graph </Text>
-      <Text style={{ fontSize: 18, marginTop: 10 }}>
-        Simple Login Registraction Example
-      </Text>
-      <Text style={{ fontSize: 18, marginTop: 10 }}>https://aboutreact</Text>
-    </View>
-  );
-};
-export default Graph ;
-// import React from 'react'
-// import { ScrollView, StatusBar, Dimensions, Text } from 'react-native'
-// import ScrollableTabView from 'react-native-scrollable-tab-view'
-// import {
-//   LineChart,
-//   BarChart,
-//   PieChart,
-//   ProgressChart,
-//   ContributionGraph
-// } from 'react-native-chart-kit'
-// import { data, contributionData, pieChartData, progressChartData } from './data'
-// import 'babel-polyfill'
+            {/*Example of StackedBar Chart*/}
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 18,
+                padding: 16,
+                marginTop: 16,
+              }}>
+              Time(minute)
+            </Text>
+            <StackedBarChart
+              data={{
+                labels: ['Time in 1', 'Time in 2'],
+                legend: ['L1', 'L2', 'L3'],
+                data: [
+                  [60, 30, 60],
+                  [30, 30, 60],
+                ],
+                barColors: ['#dfe4ea', '#ced6e0', '#a4b0be'],
+              }}
+              width={Dimensions.get('window').width - 16}
+              height={220}
+              chartConfig={{
+                backgroundColor: '#1cc910',
+                backgroundGradientFrom: '#eff3ff',
+                backgroundGradientTo: '#efefef',
+                decimalPlaces: 2,
+                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                style: {
+                  borderRadius: 16,
+                },
+              }}
+              style={{
+                marginVertical: 8,
+                borderRadius: 16,
+              }}
+            />
+            {/*Example of Pie Chart*/}
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 18,
+                padding: 16,
+                marginTop: 16,
+              }}>
+              Self Statistics
+            </Text>
+            <PieChart
+              data={[
+                {
+                  name: 'calorie',
+                  population: 215,
+                  color: 'rgba(131, 167, 234, 1)',
+                  legendFontColor: '#7F7F7F',
+                  legendFontSize: 15,
+                },
+                {
+                  name: 'Run',
+                  population: 630,
+                  color: '#F00',
+                  legendFontColor: '#7F7F7F',
+                  legendFontSize: 15,
+                },
+                {
+                  name: 'Walk',
+                  population: 253,
+                  color: '#ffffff',
+                  legendFontColor: '#7F7F7F',
+                  legendFontSize: 15,
+                },
+                {
+                  name: 'Stop',
+                  population: 20,
+                  color: 'rgb(0, 0, 255)',
+                  legendFontColor: '#7F7F7F',
+                  legendFontSize: 15,
+                },
+              ]}
+              width={Dimensions.get('window').width - 16}
+              height={220}
+              chartConfig={{
+                backgroundColor: '#1cc910',
+                backgroundGradientFrom: '#eff3ff',
+                backgroundGradientTo: '#efefef',
+                decimalPlaces: 2,
+                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                style: {
+                  borderRadius: 16,
+                },
+              }}
+              style={{
+                marginVertical: 8,
+                borderRadius: 16,
+              }}
+              accessor="population"
+              backgroundColor="transparent"
+              paddingLeft="15"
+              absolute //for the absolute number remove if you want percentage
+            />
+          </View>
+        </View>
+      </ScrollView>
+    );
+  }
+}
 
-// // in Expo - swipe left to see the following styling, or create your own
-// const chartConfigs = [
-//   {
-//     backgroundColor: '#000000',
-//     backgroundGradientFrom: '#1E2923',
-//     backgroundGradientTo: '#08130D',
-//     color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-//     style: {
-//       borderRadius: 16
-//     }
-//   },
-//   {
-//     backgroundColor: '#022173',
-//     backgroundGradientFrom: '#022173',
-//     backgroundGradientTo: '#1b3fa0',
-//     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-//     style: {
-//       borderRadius: 16
-//     }
-//   },
-//   {
-//     backgroundColor: '#ffffff',
-//     backgroundGradientFrom: '#ffffff',
-//     backgroundGradientTo: '#ffffff',
-//     color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`
-//   },
-//   {
-//     backgroundColor: '#26872a',
-//     backgroundGradientFrom: '#43a047',
-//     backgroundGradientTo: '#66bb6a',
-//     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-//     style: {
-//       borderRadius: 16
-//     }
-//   },
-//   {
-//     backgroundColor: '#000000',
-//     backgroundGradientFrom: '#000000',
-//     backgroundGradientTo: '#000000',
-//     color: (opacity = 1) => `rgba(${255}, ${255}, ${255}, ${opacity})`
-//   }, {
-//     backgroundColor: '#0091EA',
-//     backgroundGradientFrom: '#0091EA',
-//     backgroundGradientTo: '#0091EA',
-//     color: (opacity = 1) => `rgba(${255}, ${255}, ${255}, ${opacity})`
-//   },
-//   {
-//     backgroundColor: '#e26a00',
-//     backgroundGradientFrom: '#fb8c00',
-//     backgroundGradientTo: '#ffa726',
-//     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-//     style: {
-//       borderRadius: 16
-//     }
-//   },
-//   {
-//     backgroundColor: '#b90602',
-//     backgroundGradientFrom: '#e53935',
-//     backgroundGradientTo: '#ef5350',
-//     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-//     style: {
-//       borderRadius: 16
-//     }
-//   },
-//   {
-//     backgroundColor: '#ff3e03',
-//     backgroundGradientFrom: '#ff3e03',
-//     backgroundGradientTo: '#ff3e03',
-//     color: (opacity = 1) => `rgba(${0}, ${0}, ${0}, ${opacity})`
-//   }
-// ]
-
-// export default class Graph extends React.Component {
-//   renderTabBar() {
-//     return <StatusBar hidden/>
-//   }
-//   render() {
-//     const width = Dimensions.get('window').width
-//     const height = 220
-//     return (
-//       <ScrollableTabView renderTabBar={this.renderTabBar}>
-//         {chartConfigs.map(chartConfig => {
-//           const labelStyle = {
-//             color: chartConfig.color(),
-//             marginVertical: 10,
-//             textAlign: 'center',
-//             fontSize: 16
-//           }
-//           const graphStyle = {
-//             marginVertical: 8,
-//             ...chartConfig.style
-//           }
-//           return (
-//             <ScrollView
-//               key={Math.random()}
-//               style={{
-//                 backgroundColor: chartConfig.backgroundColor
-//               }}
-//             >
-//               <Text style={labelStyle}>Bezier Line Chart</Text>
-//               <LineChart
-//                 data={data}
-//                 width={width}
-//                 height={height}
-//                 chartConfig={chartConfig}
-//                 bezier
-//                 style={graphStyle}
-//               />
-//               <Text style={labelStyle}>Progress Chart</Text>
-//               <ProgressChart
-//                 data={progressChartData}
-//                 width={width}
-//                 height={height}
-//                 chartConfig={chartConfig}
-//                 style={graphStyle}
-//               />
-//               <Text style={labelStyle}>Bar Graph</Text>
-//               <BarChart
-//                 width={width}
-//                 height={height}
-//                 data={data}
-//                 chartConfig={chartConfig}
-//                 style={graphStyle}
-//               />
-//               <Text style={labelStyle}>Pie Chart</Text>
-//               <PieChart
-//                 data={pieChartData}
-//                 height={height}
-//                 width={width}
-//                 chartConfig={chartConfig}
-//                 accessor="population"
-//                 style={graphStyle}
-//               />
-//               <Text style={labelStyle}>Line Chart</Text>
-//               <LineChart
-//                 data={data}
-//                 width={width}
-//                 height={height}
-//                 chartConfig={chartConfig}
-//                 style={graphStyle}
-//               />
-//               <Text style={labelStyle}>Contribution Graph</Text>
-//               <ContributionGraph
-//                 values={contributionData}
-//                 width={width}
-//                 height={height}
-//                 endDate={new Date('2016-05-01')}
-//                 numDays={105}
-//                 chartConfig={chartConfig}
-//                 style={graphStyle}
-//               />
-//             </ScrollView>
-//           )
-//         })}
-//       </ScrollableTabView>
-//     )
-//   }
-// }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 8,
+    paddingTop: 30,
+    backgroundColor: '#ecf0f1',
+  },
+});
