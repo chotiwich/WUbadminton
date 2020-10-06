@@ -26,6 +26,7 @@ const Profile = ({navigation}) => {
             fontSize: 20,
             marginTop: 15,
             marginLeft: 15,
+            marginRight: 15,
             color: '#5e3881',
           }}>
           <Text
@@ -63,6 +64,7 @@ const Profile = ({navigation}) => {
             fontSize: 20,
             marginTop: 15,
             marginLeft: 15,
+            marginRight: 15,
             color: '#5e3881',
           }}>
           <Text
@@ -96,6 +98,7 @@ const Profile = ({navigation}) => {
             fontSize: 20,
             marginTop: 15,
             marginLeft: 15,
+            marginRight: 15,
             color: '#5e3881',
           }}>
           <Text
@@ -116,7 +119,7 @@ const Profile = ({navigation}) => {
           <Text style={{fontSize: 16, marginTop: 5, marginLeft: 50}}></Text>
         </View>
 
-        <View style={[{width: '95%', margin: 10}]}>
+        <View style={[{width: '95%', margin: 10, marginTop: 30}]}>
           <Button
             title="สถิติ"
             color="#5e3881"

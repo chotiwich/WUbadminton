@@ -29,6 +29,7 @@ const HomeScreen = ({navigation}) => {
             fontSize: 20,
             marginTop: 15,
             marginLeft: 15,
+            marginRight: 15,
             color: '#5e3881',
           }}>
           <Text
@@ -98,6 +99,7 @@ const HomeScreen = ({navigation}) => {
             fontSize: 20,
             marginTop: 15,
             marginLeft: 15,
+            marginRight: 15,
             color: '#5e3881',
           }}>
           <Text
@@ -140,6 +142,7 @@ const HomeScreen = ({navigation}) => {
             fontSize: 20,
             marginTop: 15,
             marginLeft: 15,
+            marginRight: 15,
             color: '#5e3881',
           }}>
           <Text
@@ -171,14 +174,14 @@ const HomeScreen = ({navigation}) => {
           </Text>
         </View>
 
-        <View style={[{width: '95%', margin: 10}]}>
+        <View style={[{width: '95%', margin: 10, marginTop: 5}]}>
           <Button
             title="เช็คอิน"
             color="#5e3881"
             onPress={() => navigation.navigate('Checkin')}
           />
         </View>
-        <View style={[{width: '95%', borderRadius: 30, margin: 10}]}>
+        <View style={[{width: '95%', marginTop: 5, margin: 10}]}>
           <Button
             title="จองสนาม"
             color="#5e3881"
