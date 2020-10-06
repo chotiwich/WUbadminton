@@ -5,11 +5,18 @@
 import React from 'react';
 
 //Import all required component
-import { View, StyleSheet, Text, Alert, _ScrollView } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Alert,
+  _ScrollView,
+  fontFamily,
+} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import { ScrollView } from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native-gesture-handler';
 
-const CustomSidebarMenu = props => {
+const CustomSidebarMenu = (props) => {
   let items = [
     {
       navOptionName: 'หน้าหลัก',
@@ -71,7 +78,7 @@ const CustomSidebarMenu = props => {
             },
           },
         ],
-        { cancelable: false }
+        {cancelable: false},
       );
     } else {
       props.navigation.toggleDrawer();
@@ -81,40 +88,47 @@ const CustomSidebarMenu = props => {
   };
   return (
     <ScrollView>
-    <View style={stylesSidebar.sideMenuContainer}>
-      <View style={stylesSidebar.profileHeader}>
-        <View style={stylesSidebar.profileHeaderPicCircle}>
-          <Text style={{ fontSize: 25, color: '#307ecc' }}>
-            {'C'.charAt(0)}
-          </Text>
-        </View>
-        <Text style={stylesSidebar.profileHeaderText}>Chotiwich Waradach</Text>
-      </View>
-      <View style={stylesSidebar.profileHeaderLine} />
-      <View style={{ width: '100%', flex: 1 }}>
-        {items.map((item, key) => (
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              padding: 20,
-              color: 'white',
-              backgroundColor:
-                global.currentScreenIndex === item.screenToNavigate
-                  ? '#5e3881'
-                  : '#5e3881',
-            }}
-            key={key}
-            onStartShouldSetResponder={() =>
-              handleClick(key, item.screenToNavigate)
-            }>
-            <Text style={{ fontSize: 15, color: 'white' }}>
-              {item.navOptionName}
+      <View style={stylesSidebar.sideMenuContainer}>
+        <View style={stylesSidebar.profileHeader}>
+          <View style={stylesSidebar.profileHeaderPicCircle}>
+            <Text
+              style={{
+                fontFamily: 'Prompt-Bold',
+                fontSize: 25,
+                color: '#307ecc',
+              }}>
+              {'C'.charAt(0)}
             </Text>
           </View>
-        ))}
+          <Text style={stylesSidebar.profileHeaderText}>
+            Chotiwich Waradach
+          </Text>
+        </View>
+        <View style={stylesSidebar.profileHeaderLine} />
+        <View style={{width: '100%', flex: 1}}>
+          {items.map((item, key) => (
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                padding: 20,
+                color: 'white',
+                backgroundColor:
+                  global.currentScreenIndex === item.screenToNavigate
+                    ? '#5e3881'
+                    : '#5e3881',
+              }}
+              key={key}
+              onStartShouldSetResponder={() =>
+                handleClick(key, item.screenToNavigate)
+              }>
+              <Text style={{fontSize: 15, color: 'white'}}>
+                {item.navOptionName}
+              </Text>
+            </View>
+          ))}
+        </View>
       </View>
-    </View>
     </ScrollView>
   );
 };

@@ -30,6 +30,10 @@ export default class Borrow extends Component {
               paddingBottom: 10,
               borderBottomColor: '#5e3881',
               borderBottomWidth: 1,
+              minHeight: 10,
+              minWidth: 50,
+              elevation: 50,
+              borderRadius: 50,
             }}>
             {' '}
             อุปกรณ์ที่ต้องการยืม :{' '}
@@ -51,6 +55,10 @@ export default class Borrow extends Component {
               paddingBottom: 10,
               borderBottomColor: '#5e3881',
               borderBottomWidth: 1,
+              minHeight: 10,
+              minWidth: 50,
+              elevation: 50,
+              borderRadius: 20,
             }}>
             {' '}
             จำนวน (ชุด) :{' '}

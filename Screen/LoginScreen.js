@@ -2,7 +2,7 @@
 /* https://aboutreact.com/react-native-login-and-signup/ */
 
 //Import React and Hook we needed
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 //Import all required component
 import {
@@ -20,7 +20,7 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 import Loader from './Components/loader';
 
-const LoginScreen = props => {
+const LoginScreen = (props) => {
   let [userEmail, setUserEmail] = useState('');
   let [userPassword, setUserPassword] = useState('');
   let [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ const LoginScreen = props => {
       return;
     }
     setLoading(true);
-    var dataToSend = { user_email: userEmail, user_password: userPassword };
+    var dataToSend = {user_email: userEmail, user_password: userPassword};
     var formBody = [];
     for (var key in dataToSend) {
       var encodedKey = encodeURIComponent(key);
@@ -53,8 +53,9 @@ const LoginScreen = props => {
         //Header Defination
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
-    }).then(response => response.json())
-      .then(responseJson => {
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
         //Hide Loader
         setLoading(false);
         console.log(responseJson);
@@ -68,7 +69,7 @@ const LoginScreen = props => {
           console.log('Please check your email id or password');
         }
       })
-      .catch(error => {
+      .catch((error) => {
         //Hide Loader
         setLoading(false);
         console.error(error);
@@ -76,79 +77,76 @@ const LoginScreen = props => {
   };
 
   return (
-    <ImageBackground 
-    source={require('D:/application/WUbadminton/Image/back07.png')}
-    style={{flex: 1,
-      resizeMode: "cover",
-      justifyContent: "center"}} 
-    >
-    <View style={styles.mainBody}>
-      <Loader loading={loading} />
-      <ScrollView keyboardShouldPersistTaps="handled">
-        <View style={{ marginTop: 100 }}>
-          <KeyboardAvoidingView enabled>
-            <View style={{ alignItems: 'center' }}>
-              <Image
-                source={require('../Image/wubadlogo.png')}
-                style={{
-                  width: 200,
-                  height: 200,
-                  resizeMode: 'contain',
-                  margin: 50,
-                }}
-              />
-            </View>
-            <View style={styles.SectionStyle}>
-              <TextInput
-                style={styles.inputStyle}
-                onChangeText={UserEmail => setUserEmail(UserEmail)}
-                placeholder="Username" //dummy@abc.com
-                placeholderTextColor="#5e3881"
-                autoCapitalize="none"
-                keyboardType="email-address"
-                ref={ref => {
-                  this._emailinput = ref;
-                }}
-                returnKeyType="next"
-                onSubmitEditing={() =>
-                  this._passwordinput && this._passwordinput.focus()
-                }
-                blurOnSubmit={false}
-              />
-            </View>
-            <View style={styles.SectionStyle}>
-              <TextInput
-                style={styles.inputStyle}
-                onChangeText={UserPassword => setUserPassword(UserPassword)}
-                placeholder="Password" //12345
-                placeholderTextColor="#5e3881"
-                keyboardType="default"
-                ref={ref => {
-                  this._passwordinput = ref;
-                }}
-                onSubmitEditing={Keyboard.dismiss}
-                blurOnSubmit={false}
-                secureTextEntry={true}
-              />
-            </View>
-            {errortext != '' ? (
-              <Text style={styles.errorTextStyle}> {errortext} </Text>
-            ) : null}
-            <TouchableOpacity
-              style={styles.buttonStyle}
-              activeOpacity={0.5}
-              onPress={handleSubmitPress}>
-              <Text style={styles.buttonTextStyle}>LOGIN</Text>
-            </TouchableOpacity>
-            <Text
-              style={styles.registerTextStyle}
-              onPress={() => props.navigation.navigate('RegisterScreen')}>
-              New Here ? Register
-            </Text>
-          </KeyboardAvoidingView>
-        </View>
-      </ScrollView>
-    </View>
+    <ImageBackground
+      source={require('D:/application/WUbadminton/Image/back07.png')}
+      style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+      <View style={styles.mainBody}>
+        <Loader loading={loading} />
+        <ScrollView keyboardShouldPersistTaps="handled">
+          <View style={{marginTop: 100}}>
+            <KeyboardAvoidingView enabled>
+              <View style={{alignItems: 'center'}}>
+                <Image
+                  source={require('../Image/wubadlogo.png')}
+                  style={{
+                    width: 200,
+                    height: 200,
+                    resizeMode: 'contain',
+                    margin: 50,
+                  }}
+                />
+              </View>
+              <View style={styles.SectionStyle}>
+                <TextInput
+                  style={styles.inputStyle}
+                  onChangeText={(UserEmail) => setUserEmail(UserEmail)}
+                  placeholder="Username" //dummy@abc.com
+                  placeholderTextColor="#5e3881"
+                  autoCapitalize="none"
+                  keyboardType="email-address"
+                  ref={(ref) => {
+                    this._emailinput = ref;
+                  }}
+                  returnKeyType="next"
+                  onSubmitEditing={() =>
+                    this._passwordinput && this._passwordinput.focus()
+                  }
+                  blurOnSubmit={false}
+                />
+              </View>
+              <View style={styles.SectionStyle}>
+                <TextInput
+                  style={styles.inputStyle}
+                  onChangeText={(UserPassword) => setUserPassword(UserPassword)}
+                  placeholder="Password" //12345
+                  placeholderTextColor="#5e3881"
+                  keyboardType="default"
+                  ref={(ref) => {
+                    this._passwordinput = ref;
+                  }}
+                  onSubmitEditing={Keyboard.dismiss}
+                  blurOnSubmit={false}
+                  secureTextEntry={true}
+                />
+              </View>
+              {errortext != '' ? (
+                <Text style={styles.errorTextStyle}> {errortext} </Text>
+              ) : null}
+              <TouchableOpacity
+                style={styles.buttonStyle}
+                activeOpacity={0.5}
+                onPress={handleSubmitPress}>
+                <Text style={styles.buttonTextStyle}>LOGIN</Text>
+              </TouchableOpacity>
+              <Text
+                style={styles.registerTextStyle}
+                onPress={() => props.navigation.navigate('RegisterScreen')}>
+                New Here ? Register
+              </Text>
+            </KeyboardAvoidingView>
+          </View>
+        </ScrollView>
+      </View>
     </ImageBackground>
   );
 };
@@ -158,7 +156,6 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    
   },
   SectionStyle: {
     flexDirection: 'row',
@@ -211,5 +208,5 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     width: null,
     height: null,
-  }
+  },
 });
