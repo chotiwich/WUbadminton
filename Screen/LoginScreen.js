@@ -2,7 +2,8 @@
 /* https://aboutreact.com/react-native-login-and-signup/ */
 
 //Import React and Hook we needed
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
+import React, {Component} from 'react';
 
 //Import all required component
 import {
@@ -13,143 +14,121 @@ import {
   ScrollView,
   Image,
   Keyboard,
-  ImageBackground,
   TouchableOpacity,
   KeyboardAvoidingView,
+  ImageBackground,
 } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+// import AsyncStorage from '@react-native-community/async-storage';
 import Loader from './Components/loader';
 
-const LoginScreen = (props) => {
-  let [userEmail, setUserEmail] = useState('');
-  let [userPassword, setUserPassword] = useState('');
-  let [loading, setLoading] = useState(false);
-  let [errortext, setErrortext] = useState('');
+class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
 
-  const handleSubmitPress = () => {
-    setErrortext('');
-    if (!userEmail) {
-      alert('Please fill Email');
-      return;
-    }
-    if (!userPassword) {
-      alert('Please fill Password');
-      return;
-    }
-    setLoading(true);
-    var dataToSend = {user_email: userEmail, user_password: userPassword};
-    var formBody = [];
-    for (var key in dataToSend) {
-      var encodedKey = encodeURIComponent(key);
-      var encodedValue = encodeURIComponent(dataToSend[key]);
-      formBody.push(encodedKey + '=' + encodedValue);
-    }
-    formBody = formBody.join('&');
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
+  UserLoginFunction = () => {
+    const {email} = this.state;
+    const {password} = this.state;
 
-    fetch('https://aboutreact.herokuapp.com/login.php', {
+    fetch('http://172.20.10.3/wubadminton/user_login.php', {
       method: 'POST',
-      body: formBody,
       headers: {
-        //Header Defination
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        email: email,
+
+        password: password,
+      }),
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        //Hide Loader
-        setLoading(false);
-        console.log(responseJson);
         // If server response message same as Data Matched
-        if (responseJson.status == 1) {
-          AsyncStorage.setItem('user_id', responseJson.data[0].user_id);
-          console.log(responseJson.data[0].user_id);
-          props.navigation.navigate('DrawerNavigationRoutes');
+        if (responseJson === 'Data Matched') {
+          //Then open Profile activity and send user email to profile activity.
+          this.props.navigation.navigate('DrawerNavigationRoutes', {
+            Email: email,
+          });
         } else {
-          setErrortext('Please check your email id or password');
-          console.log('Please check your email id or password');
+          Alert.alert(responseJson);
         }
       })
       .catch((error) => {
-        //Hide Loader
-        setLoading(false);
         console.error(error);
       });
   };
-
-  return (
-    <ImageBackground
-      source={require('D:/application/WUbadminton/Image/back07.png')}
-      style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
-      <View style={styles.mainBody}>
-        <Loader loading={loading} />
-        <ScrollView keyboardShouldPersistTaps="handled">
-          <View style={{marginTop: 100}}>
-            <KeyboardAvoidingView enabled>
-              <View style={{alignItems: 'center'}}>
-                <Image
-                  source={require('../Image/wubadlogo.png')}
-                  style={{
-                    width: 200,
-                    height: 200,
-                    resizeMode: 'contain',
-                    margin: 50,
-                  }}
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(UserEmail) => setUserEmail(UserEmail)}
-                  placeholder="Username" //dummy@abc.com
-                  placeholderTextColor="#5e3881"
-                  autoCapitalize="none"
-                  keyboardType="email-address"
-                  ref={(ref) => {
-                    this._emailinput = ref;
-                  }}
-                  returnKeyType="next"
-                  onSubmitEditing={() =>
-                    this._passwordinput && this._passwordinput.focus()
-                  }
-                  blurOnSubmit={false}
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(UserPassword) => setUserPassword(UserPassword)}
-                  placeholder="Password" //12345
-                  placeholderTextColor="#5e3881"
-                  keyboardType="default"
-                  ref={(ref) => {
-                    this._passwordinput = ref;
-                  }}
-                  onSubmitEditing={Keyboard.dismiss}
-                  blurOnSubmit={false}
-                  secureTextEntry={true}
-                />
-              </View>
-              {errortext != '' ? (
-                <Text style={styles.errorTextStyle}> {errortext} </Text>
-              ) : null}
-              <TouchableOpacity
-                style={styles.buttonStyle}
-                activeOpacity={0.5}
-                onPress={handleSubmitPress}>
-                <Text style={styles.buttonTextStyle}>LOGIN</Text>
-              </TouchableOpacity>
-              <Text
-                style={styles.registerTextStyle}
-                onPress={() => props.navigation.navigate('RegisterScreen')}>
-                New Here ? Register
-              </Text>
-            </KeyboardAvoidingView>
-          </View>
-        </ScrollView>
-      </View>
-    </ImageBackground>
-  );
-};
+  render() {
+    return (
+      <ImageBackground
+        source={require('D:/application/WUbadminton/Image/back07.png')}
+        style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+        <View style={styles.mainBody}>
+          <ScrollView keyboardShouldPersistTaps="handled">
+            <View style={{marginTop: 100}}>
+              <KeyboardAvoidingView enabled>
+                <View style={{alignItems: 'center'}}>
+                  <Image
+                    source={require('../Image/wubadlogo.png')}
+                    style={{
+                      width: '70%',
+                      height: 180,
+                      resizeMode: 'contain',
+                      margin: 30,
+                    }}
+                  />
+                </View>
+                <View style={styles.SectionStyle}>
+                  <TextInput
+                    style={styles.inputStyle}
+                    onChangeText={(email) => this.setState({email})}
+                    underlineColorAndroid="#778899"
+                    placeholder="Enter Email"
+                    placeholderTextColor="#778899"
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    returnKeyType="next"
+                    blurOnSubmit={false}
+                  />
+                </View>
+                <View style={styles.SectionStyle}>
+                  <TextInput
+                    style={styles.inputStyle}
+                    onChangeText={(password) => this.setState({password})}
+                    underlineColorAndroid="#778899"
+                    placeholder="Enter Password"
+                    placeholderTextColor="#778899"
+                    keyboardType="default"
+                    onSubmitEditing={Keyboard.dismiss}
+                    blurOnSubmit={false}
+                    secureTextEntry={true}
+                  />
+                </View>
+                <TouchableOpacity
+                  style={styles.buttonStyle}
+                  activeOpacity={0.5}
+                  onPress={this.UserLoginFunction}>
+                  <Text style={styles.buttonTextStyle}>LOGIN</Text>
+                </TouchableOpacity>
+                <Text
+                  style={styles.registerTextStyle}
+                  onPress={() =>
+                    this.props.navigation.navigate('RegisterScreen')
+                  }>
+                  New Here ? Register
+                </Text>
+              </KeyboardAvoidingView>
+            </View>
+          </ScrollView>
+        </View>
+      </ImageBackground>
+    );
+  }
+}
 export default LoginScreen;
 
 const styles = StyleSheet.create({
@@ -210,3 +189,157 @@ const styles = StyleSheet.create({
     height: null,
   },
 });
+
+// /* This is an Login Registration example from https://aboutreact.com/ */
+// /* https://aboutreact.com/react-native-login-and-signup/ */
+
+// //Import React and Hook we needed
+// import React, {useState} from 'react';
+
+// //Import all required component
+// import {
+//   StyleSheet,
+//   TextInput,
+//   View,
+//   Text,
+//   ScrollView,
+//   Image,
+//   Keyboard,
+//   ImageBackground,
+//   TouchableOpacity,
+//   KeyboardAvoidingView,
+// } from 'react-native';
+// import AsyncStorage from '@react-native-community/async-storage';
+// import Loader from './Components/loader';
+
+// const LoginScreen = (props) => {
+//   let [userEmail, setUserEmail] = useState('');
+//   let [userPassword, setUserPassword] = useState('');
+//   let [loading, setLoading] = useState(false);
+//   let [errortext, setErrortext] = useState('');
+
+//   const handleSubmitPress = () => {
+//     setErrortext('');
+//     if (!userEmail) {
+//       alert('Please fill Email');
+//       return;
+//     }
+//     if (!userPassword) {
+//       alert('Please fill Password');
+//       return;
+//     }
+//     setLoading(true);
+//     var dataToSend = {user_email: userEmail, user_password: userPassword};
+//     var formBody = [];
+//     for (var key in dataToSend) {
+//       var encodedKey = encodeURIComponent(key);
+//       var encodedValue = encodeURIComponent(dataToSend[key]);
+//       formBody.push(encodedKey + '=' + encodedValue);
+//     }
+//     formBody = formBody.join('&');
+
+//     fetch('https://aboutreact.herokuapp.com/login.php', {
+//       method: 'POST',
+//       body: formBody,
+//       headers: {
+//         //Header Defination
+//         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+//       },
+//     })
+//       .then((response) => response.json())
+//       .then((responseJson) => {
+//         //Hide Loader
+//         setLoading(false);
+//         console.log(responseJson);
+//         // If server response message same as Data Matched
+//         if (responseJson.status == 1) {
+//           AsyncStorage.setItem('user_id', responseJson.data[0].user_id);
+//           console.log(responseJson.data[0].user_id);
+//           props.navigation.navigate('DrawerNavigationRoutes');
+//         } else {
+//           setErrortext('Please check your email id or password');
+//           console.log('Please check your email id or password');
+//         }
+//       })
+//       .catch((error) => {
+//         //Hide Loader
+//         setLoading(false);
+//         console.error(error);
+//       });
+//   };
+
+//   return (
+//     <ImageBackground
+//       source={require('D:/application/WUbadminton/Image/back07.png')}
+//       style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+//       <View style={styles.mainBody}>
+//         <Loader loading={loading} />
+//         <ScrollView keyboardShouldPersistTaps="handled">
+//           <View style={{marginTop: 100}}>
+//             <KeyboardAvoidingView enabled>
+//               <View style={{alignItems: 'center'}}>
+//                 <Image
+//                   source={require('../Image/wubadlogo.png')}
+//                   style={{
+//                     width: 200,
+//                     height: 200,
+//                     resizeMode: 'contain',
+//                     margin: 50,
+//                   }}
+//                 />
+//               </View>
+//               <View style={styles.SectionStyle}>
+//                 <TextInput
+//                   style={styles.inputStyle}
+//                   onChangeText={(UserEmail) => setUserEmail(UserEmail)}
+//                   placeholder="Username" //dummy@abc.com
+//                   placeholderTextColor="#5e3881"
+//                   autoCapitalize="none"
+//                   keyboardType="email-address"
+//                   ref={(ref) => {
+//                     this._emailinput = ref;
+//                   }}
+//                   returnKeyType="next"
+//                   onSubmitEditing={() =>
+//                     this._passwordinput && this._passwordinput.focus()
+//                   }
+//                   blurOnSubmit={false}
+//                 />
+//               </View>
+//               <View style={styles.SectionStyle}>
+//                 <TextInput
+//                   style={styles.inputStyle}
+//                   onChangeText={(UserPassword) => setUserPassword(UserPassword)}
+//                   placeholder="Password" //12345
+//                   placeholderTextColor="#5e3881"
+//                   keyboardType="default"
+//                   ref={(ref) => {
+//                     this._passwordinput = ref;
+//                   }}
+//                   onSubmitEditing={Keyboard.dismiss}
+//                   blurOnSubmit={false}
+//                   secureTextEntry={true}
+//                 />
+//               </View>
+//               {errortext != '' ? (
+//                 <Text style={styles.errorTextStyle}> {errortext} </Text>
+//               ) : null}
+//               <TouchableOpacity
+//                 style={styles.buttonStyle}
+//                 activeOpacity={0.5}
+//                 onPress={handleSubmitPress}>
+//                 <Text style={styles.buttonTextStyle}>LOGIN</Text>
+//               </TouchableOpacity>
+//               <Text
+//                 style={styles.registerTextStyle}
+//                 onPress={() => props.navigation.navigate('RegisterScreen')}>
+//                 New Here ? Register
+//               </Text>
+//             </KeyboardAvoidingView>
+//           </View>
+//         </ScrollView>
+//       </View>
+//     </ImageBackground>
+//   );
+// };
+// export default LoginScreen;

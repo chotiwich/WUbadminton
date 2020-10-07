@@ -5,13 +5,13 @@
 import React from 'react';
 
 //Import Navigators
-import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 
 //Import External Screens
 import HomeScreen from './drawerScreens/HomeScreen';
 import Checkin from './drawerScreens/Checkin';
-import Bookcourt from './drawerScreens/ิBookcourt';
+import Book_course from './drawerScreens/Book_course';
 import Borrow from './drawerScreens/Borrow';
 import Rebad from './drawerScreens/Rebad';
 import Schedule from './drawerScreens/Schedule';
@@ -21,11 +21,10 @@ import SettingsScreen from './drawerScreens/SettingsScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
 
-
 const FirstActivity_StackNavigator = createStackNavigator({
   First: {
     screen: HomeScreen,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       title: 'WU Badminton Court',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -39,7 +38,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
 const SecondActivity_StackNavigator = createStackNavigator({
   First: {
     screen: SettingsScreen,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       title: 'การตั้งค่า',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -53,7 +52,7 @@ const SecondActivity_StackNavigator = createStackNavigator({
 const thirdActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Checkin,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       title: 'เช็คอิน',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -66,8 +65,8 @@ const thirdActivity_StackNavigator = createStackNavigator({
 
 const fourActivity_StackNavigator = createStackNavigator({
   First: {
-    screen: Bookcourt,
-    navigationOptions: ({ navigation }) => ({
+    screen: Book_course,
+    navigationOptions: ({navigation}) => ({
       title: 'จองสนาม',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -81,7 +80,7 @@ const fourActivity_StackNavigator = createStackNavigator({
 const fiveActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Borrow,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       title: 'ยืมอุปกรณ์',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -95,7 +94,7 @@ const fiveActivity_StackNavigator = createStackNavigator({
 const sixActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Rebad,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       title: 'คืนอุปกรณ์',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -109,7 +108,7 @@ const sixActivity_StackNavigator = createStackNavigator({
 const sevenActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Schedule,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       title: 'ข้อมูลการแข่งขัน',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -123,7 +122,7 @@ const sevenActivity_StackNavigator = createStackNavigator({
 const eightActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Profile,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       title: 'ข้อมูลผู้ใช้',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -137,7 +136,7 @@ const eightActivity_StackNavigator = createStackNavigator({
 const nineActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Graph,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       title: 'สถิติต่าง ๆ',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
@@ -165,7 +164,7 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
     Bookcourt: {
       screen: fourActivity_StackNavigator,
       navigationOptions: {
-        drawerLabel: 'Bookcourt',
+        drawerLabel: 'Book_course',
       },
     },
     SettingsScreen: {
@@ -204,13 +203,12 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
         drawerLabel: 'Schedule',
       },
     },
-
   },
   {
     contentComponent: CustomSidebarMenu,
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
     drawerToggleRoute: 'DrawerToggle',
-  }
+  },
 );
 export default DrawerNavigatorRoutes;
