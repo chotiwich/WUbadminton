@@ -14,7 +14,7 @@ export default class Rebad extends Component {
   }
 
   UserRegistrationFunction = () => {
-    fetch('http://172.18.132.133/WUBadminton/insert_borrow.php', {
+    fetch('http://172.16.240.112/WUBadminton/insert_borrow.php', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
