@@ -6,62 +6,68 @@ import React from 'react';
 
 //Import all required component
 import 'react-native-gesture-handler';
-import { View, Text,Image,StyleSheet,TouchableOpacity, Button,ScrollView, ImageBackground } from 'react-native';
-import { Slide } from 'react-slideshow-image';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Button,
+  ScrollView,
+  ImageBackground,
+} from 'react-native';
+import {Slide} from 'react-slideshow-image';
 
-
-const Schedule =({navigation}) =>{
+const Schedule = ({navigation}) => {
   global.currentScreenIndex = 'Schedule';
-  
+
   return (
-    <ImageBackground source={require('D:/application/WUbadminton/Image/back07.png')}
-    style={{flex: 1,
-      resizeMode: "cover",
-      justifyContent: "center"}} 
-    >
-    <View style={styles.container}> 
-      <ScrollView>
-            <Image
-              style={styles.logo}
-              source={require('D:/application/WUbadminton/Image/poster01.jpg')}
-            />
-            <Button
-                style={styles.buttonStyle}
-                title="Go to Details"
-                onPress={() => navigation.navigate('Schedule')}
-              />
-             <Image
-              style={styles.logo}
-              source={require('D:/application/WUbadminton/Image/poster02.jpg')}
-            />
-            <Button
-                style={styles.buttonStyle}
-                title="Go to Details"
-                onPress={() => navigation.navigate('Schedule')}
-              />
-             <Image
-              style={styles.logo}
-              source={require('D:/application/WUbadminton/Image/poster03.jpg')}
-            />
-            <Button
-                style={styles.buttonStyle}
-                title="Go to Details"
-                onPress={() => navigation.navigate('Schedule')}
-              />
-             <Image
-              style={styles.logo}
-              source={require('D:/application/WUbadminton/Image/poster04.jpg')}
-            />
-             <Button
-                style={styles.buttonStyle}
-                title="Go to Details"
-                onPress={() => navigation.navigate('Schedule')}
-              />
+    <ImageBackground
+      source={require('D:/application/WUbadminton/Image/back07.png')}
+      style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+      <View style={styles.container}>
+        <ScrollView>
+          <Image
+            style={styles.logo}
+            source={require('D:/application/WUbadminton/Image/poster01.jpg')}
+          />
+          <Button
+            style={styles.buttonStyle}
+            title="Go to Details"
+            onPress={() => navigation.navigate('Schedule')}
+          />
+          <Image
+            style={styles.logo}
+            source={require('D:/application/WUbadminton/Image/poster02.jpg')}
+          />
+          <Button
+            style={styles.buttonStyle}
+            title="Go to Details"
+            onPress={() => navigation.navigate('Schedule')}
+          />
+          <Image
+            style={styles.logo}
+            source={require('D:/application/WUbadminton/Image/poster03.jpg')}
+          />
+          <Button
+            style={styles.buttonStyle}
+            title="Go to Details"
+            onPress={() => navigation.navigate('Schedule')}
+          />
+          <Image
+            style={styles.logo}
+            source={require('D:/application/WUbadminton/Image/poster04.jpg')}
+          />
+          <Button
+            style={styles.buttonStyle}
+            title="Go to Details"
+            onPress={() => navigation.navigate('Schedule')}
+          />
         </ScrollView>
-    </View>
+      </View>
     </ImageBackground>
   );
-}
+};
 export default Schedule;
 
 const styles = StyleSheet.create({
