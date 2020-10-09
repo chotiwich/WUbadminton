@@ -7,14 +7,14 @@ export default class Rebad extends Component {
     super();
 
     this.state = {
-      name: '',
-      type: '',
-      num: '',
+      people_name: '',
+      type_borrow: '',
+      num_borrow: '',
     };
   }
 
   UserRegistrationFunction = () => {
-    fetch('http://172.16.240.112/WUBadminton/insert_borrow.php', {
+    fetch('http://172.20.10.3/WUBadminton/insert_borrow.php', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

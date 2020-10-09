@@ -26,34 +26,26 @@ class LoginScreen extends Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      user_email: '',
+      user_password: '',
     };
   }
   UserLoginFunction = () => {
-    const {email} = this.state;
-    const {password} = this.state;
+    const {user_email} = this.state;
+    const {user_password} = this.state;
 
-    fetch('http://172.20.10.3/wubadminton/user_login.php', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-
-        password: password,
-      }),
-    })
+    fetch(
+      'http://172.20.10.3/WUBadminton/user_login.php?user_email=' +
+        user_email +
+        '&user_password=' +
+        user_password,
+    )
       .then((response) => response.json())
       .then((responseJson) => {
         // If server response message same as Data Matched
         if (responseJson === 'Data Matched') {
           //Then open Profile activity and send user email to profile activity.
-          this.props.navigation.navigate('DrawerNavigationRoutes', {
-            Email: email,
-          });
+          this.props.navigation.navigate('DrawerNavigationRoutes');
         } else {
           Alert.alert(responseJson);
         }
@@ -85,7 +77,7 @@ class LoginScreen extends Component {
                 <View style={styles.SectionStyle}>
                   <TextInput
                     style={styles.inputStyle}
-                    onChangeText={(email) => this.setState({email})}
+                    onChangeText={(user_email) => this.setState({user_email})}
                     underlineColorAndroid="#778899"
                     placeholder="Enter Email"
                     placeholderTextColor="#778899"
@@ -98,7 +90,9 @@ class LoginScreen extends Component {
                 <View style={styles.SectionStyle}>
                   <TextInput
                     style={styles.inputStyle}
-                    onChangeText={(password) => this.setState({password})}
+                    onChangeText={(user_password) =>
+                      this.setState({user_password})
+                    }
                     underlineColorAndroid="#778899"
                     placeholder="Enter Password"
                     placeholderTextColor="#778899"
@@ -131,67 +125,8 @@ class LoginScreen extends Component {
 }
 export default LoginScreen;
 
-const styles = StyleSheet.create({
-  mainBody: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  SectionStyle: {
-    flexDirection: 'row',
-    height: 40,
-    marginTop: 20,
-    marginLeft: 35,
-    marginRight: 35,
-    margin: 10,
-  },
-  buttonStyle: {
-    backgroundColor: '#5e3881',
-    borderWidth: 0,
-    color: '#FFFFFF',
-    borderColor: '#7DE24E',
-    height: 40,
-    alignItems: 'center',
-    borderRadius: 30,
-    marginLeft: 35,
-    marginRight: 35,
-    marginTop: 20,
-    marginBottom: 20,
-  },
-  buttonTextStyle: {
-    color: '#ffffff',
-    paddingVertical: 10,
-    fontSize: 16,
-  },
-  inputStyle: {
-    flex: 1,
-    color: 'black',
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderWidth: 1,
-    borderRadius: 30,
-    borderColor: '#5e3881',
-  },
-  registerTextStyle: {
-    color: '#5e3881',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  errorTextStyle: {
-    color: 'red',
-    textAlign: 'center',
-    fontSize: 14,
-  },
-  backgroundImage: {
-    flex: 1,
-    alignSelf: 'stretch',
-    width: null,
-    height: null,
-  },
-});
-
-// /* This is an Login Registration example from https://aboutreact.com/ */
-// /* https://aboutreact.com/react-native-login-and-signup/ */
+/* This is an Login Registration example from https://aboutreact.com/ */
+/* https://aboutreact.com/react-native-login-and-signup/ */
 
 // //Import React and Hook we needed
 // import React, {useState} from 'react';
@@ -213,14 +148,14 @@ const styles = StyleSheet.create({
 // import Loader from './Components/loader';
 
 // const LoginScreen = (props) => {
-//   let [userEmail, setUserEmail] = useState('');
+//   let [user_email, setuser_email] = useState('');
 //   let [userPassword, setUserPassword] = useState('');
 //   let [loading, setLoading] = useState(false);
 //   let [errortext, setErrortext] = useState('');
 
 //   const handleSubmitPress = () => {
 //     setErrortext('');
-//     if (!userEmail) {
+//     if (!user_email) {
 //       alert('Please fill Email');
 //       return;
 //     }
@@ -229,7 +164,7 @@ const styles = StyleSheet.create({
 //       return;
 //     }
 //     setLoading(true);
-//     var dataToSend = {user_email: userEmail, user_password: userPassword};
+//     var dataToSend = {user_email: user_email, user_password: userPassword};
 //     var formBody = [];
 //     for (var key in dataToSend) {
 //       var encodedKey = encodeURIComponent(key);
@@ -291,7 +226,7 @@ const styles = StyleSheet.create({
 //               <View style={styles.SectionStyle}>
 //                 <TextInput
 //                   style={styles.inputStyle}
-//                   onChangeText={(UserEmail) => setUserEmail(UserEmail)}
+//                   onChangeText={(user_email) => setuser_email(user_email)}
 //                   placeholder="Username" //dummy@abc.com
 //                   placeholderTextColor="#5e3881"
 //                   autoCapitalize="none"
@@ -343,3 +278,62 @@ const styles = StyleSheet.create({
 //   );
 // };
 // export default LoginScreen;
+
+const styles = StyleSheet.create({
+  mainBody: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  SectionStyle: {
+    flexDirection: 'row',
+    height: 40,
+    marginTop: 20,
+    marginLeft: 35,
+    marginRight: 35,
+    margin: 10,
+  },
+  buttonStyle: {
+    backgroundColor: '#5e3881',
+    borderWidth: 0,
+    color: '#FFFFFF',
+    borderColor: '#7DE24E',
+    height: 40,
+    alignItems: 'center',
+    borderRadius: 30,
+    marginLeft: 35,
+    marginRight: 35,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  buttonTextStyle: {
+    color: '#ffffff',
+    paddingVertical: 10,
+    fontSize: 16,
+  },
+  inputStyle: {
+    flex: 1,
+    color: 'black',
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderWidth: 1,
+    borderRadius: 30,
+    borderColor: '#5e3881',
+  },
+  registerTextStyle: {
+    color: '#5e3881',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  errorTextStyle: {
+    color: 'red',
+    textAlign: 'center',
+    fontSize: 14,
+  },
+  backgroundImage: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null,
+    height: null,
+  },
+});
