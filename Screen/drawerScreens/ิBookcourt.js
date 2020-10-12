@@ -32,7 +32,7 @@ fetch('http://192.168.43.210/wucourt/booking_court.php', {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    court_id: TextInputCourtID,
+  
     court_name: TextInputCourtName,
 
     court_time: TextInputTime,
