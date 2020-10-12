@@ -11,21 +11,29 @@ constructor(props) {
  
     this.state = {
       
-      TextInputCourtName: '',
-      TextInputTime: '',
-      TextInputDate: ''
- 
+      TextInputName: '',
+      TextInputNicename: '',
+      TextInputSex: '',
+      TextInputTelephone: '',
+      TextInputEmail: '',
+      TextInputProfession: '',
+      TextInputPassword: ''
     }
  
   }
   
   InsertDataToServer = () =>{
-    const { TextInputCourtName }  = this.state ;
-    const { TextInputTime }  = this.state ;
-    const { TextInputDate }  = this.state ;
+    const { TextInputName }  = this.state ;
+    const { TextInputNicename }  = this.state ;
+    const { TextInputSex }  = this.state ;
+    const { TextInputTelephone }  = this.state ;
+    const { TextInputProfession }  = this.state ;
+    const { TextInputEmail }  = this.state ;
+    const { TextInputPassword }  = this.state ;
 
 
-fetch('http://192.168.43.210/wucourt/booking_court.php', {
+
+fetch('http://172.20.10.5/wucourt/Register.php', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
@@ -33,11 +41,13 @@ fetch('http://192.168.43.210/wucourt/booking_court.php', {
   },
   body: JSON.stringify({
     
-    court_name: TextInputCourtName,
-
-    court_time: TextInputTime,
-
-    court_date: TextInputDate
+    CName: TextInputName,
+    CNicename: TextInputNicename,
+    CSex: TextInputSex,
+    CTelephone: TextInputTelephone,
+    CProfession: TextInputProfession,
+    CEmail: TextInputEmail,
+    CPassword: TextInputPassword,
 
   })
 
@@ -63,43 +73,50 @@ fetch('http://192.168.43.210/wucourt/booking_court.php', {
     <View style={styles.MainContainer}>
        
       <TextInput
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter Court"
- 
-          onChangeText={TextInputCourtName => this.setState({TextInputCourtName})}
+       placeholder="Enter name"
+        onChangeText={TextInputName => this.setState({TextInputName})}
+        underlineColorAndroid='transparent'
+        style={styles.TextInputStyleClass}
+        />
 
-          // Making the Under line Transparent.
+        <TextInput
+          placeholder="Enter Nicename"
+          onChangeText={TextInputNicename => this.setState({TextInputNicename})}
           underlineColorAndroid='transparent'
- 
           style={styles.TextInputStyleClass}
         />
 
         <TextInput
-          
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter time"
- 
-          onChangeText={TextInputTime => this.setState({TextInputTime})}
-
-          // Making the Under line Transparent.
+          placeholder="Enter Sex"
+          onChangeText={TextInputSex => this.setState({TextInputSex})}
           underlineColorAndroid='transparent'
- 
           style={styles.TextInputStyleClass}
         />
-
         <TextInput
-          
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter Date"
- 
-          onChangeText={TextInputDate => this.setState({TextInputDate})}
-
-          // Making the Under line Transparent.
+          placeholder="Enter Telephone"
+          onChangeText={TextInputTelephone => this.setState({TextInputTelephone})}
           underlineColorAndroid='transparent'
- 
           style={styles.TextInputStyleClass}
         />
- 
+        <TextInput
+          placeholder="Enter Profession"
+          onChangeText={TextInputProfession => this.setState({TextInputProfession})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+        <TextInput
+          placeholder="Enter Email"
+          onChangeText={TextInputEmail => this.setState({TextInputEmail})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+        <TextInput
+          placeholder="Enter Password"
+          onChangeText={TextInputPassword => this.setState({TextInputPassword})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+
         <Button title="Insert Text Input Data to Server" onPress={this.InsertDataToServer} color="#2196F3" />
        
       </View>
