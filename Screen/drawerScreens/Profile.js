@@ -23,7 +23,7 @@ export default class SettingScreen extends Component {
   }
 
   componentDidMount() {
-    return fetch('http://172.20.10.5/wucourt/customer.php')
+    return fetch('http://172.20.10.5/wucourt/show_customer_court_equipment.php')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({data: responseJson});
@@ -79,10 +79,13 @@ export default class SettingScreen extends Component {
                       เบอร์โทร: {item.CTelephone}
                     </Text>
                     <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      เบอร์โทร : {item.CEmail}
+                      อาชีพ : {item.CProfession}
                     </Text>
                     <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      อาชีพ : {item.CProfession}
+                     Email : {item.CEmail}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                     password : {item.CPassword}
                     </Text>
                   </View>
                 )}
@@ -111,10 +114,25 @@ export default class SettingScreen extends Component {
                       ข้อมูลการจอง
                     </Text>
                     <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      เวลาที่จอง : {item.CTime}
+                      วันที่จอง : {item.court_date}
                     </Text>
                     <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      คอร์ด : {item.CCourt}
+                      เวลาที่จอง : {item.court_time}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      คอร์ด : {item.court_name}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                    equipment_name : {item.equipment_name}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                    equipment_num : {item.equipment_num}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                    equipment_date : {item.equipment_date}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                    equipment_time : {item.equipment_time}
                     </Text>
                   </View>
                 )}
