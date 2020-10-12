@@ -6,19 +6,55 @@ import React from 'react';
 
 //Import all required component
 import {View, Text, ImageBackground, Button, ScrollView} from 'react-native';
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
+import {LocaleConfig} from 'react-native-calendars';
+
+LocaleConfig.locales['fr'] = {
+  monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+  monthNamesShort: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+  dayNames: ['Sunday','Monday','Tuesday','Wednesday','Thurday','Friday','Saturday'],
+  dayNamesShort: ['Sun.','Mon.','Tues.','Wed.','Thurs.','Fri.','Sat.']
+};
+
+LocaleConfig.defaultLocale = 'fr';
 const HomeScreen = ({navigation}) => {
   global.currentScreenIndex = '>WU Badminton Court';
   return (
-    // <ImageBackground
-    //   source={require('D:/application/WUbadminton/Image/back07.png')}
-    //   style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+    <ImageBackground
+      source={require('D:/application/WUbadminton/Image/back08.png')}
+      style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
     <View
       style={{
         flex: 1,
         marginTop: 0,
       }}>
       <ScrollView>
+        <View style={{
+            backgroundColor: 'white',
+            textAlign: 'center',
+            minHeight: 10,
+            minWidth: 10,
+            elevation: 50,
+            borderRadius: 20,
+            fontSize: 20,
+            marginTop: 15,
+            marginLeft: 15,
+            marginRight: 15,
+            color: '#5e3881',
+          }}>
+        <Calendar 
+  // Collection of dates that have to be colored in a special way. Default = {}
+   markedDates={
+    {'2012-05-20': [{textColor: 'green'}],
+     '2012-05-22': [{startingDay: true, color: 'green'}],
+     '2012-05-23': [{endingDay: true, color: 'green', textColor: '#5e3881'}],
+     '2012-05-04': [{startingDay: true, color: 'green'}, {endingDay: true, color: 'green'}]
+    }}
+  // Date marking style [simple/interactive]. Default = 'simple'
+  markingType={'interactive'}
+/>
+        </View>
         <View
           style={{
             backgroundColor: 'white',
@@ -191,7 +227,7 @@ const HomeScreen = ({navigation}) => {
         </View>
       </ScrollView>
     </View>
-    // </ImageBackground>
+     </ImageBackground>
   );
 };
 export default HomeScreen;

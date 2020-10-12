@@ -25,6 +25,10 @@ export default class Borrow extends Component {
     alert(value);
     this.setState({selectedLabel: value});
   };
+  Show1 = (value) => {
+    alert(value);
+    this.setState({selectedLabel1: value});
+  };
 
   render() {
     return (
@@ -127,8 +131,8 @@ export default class Borrow extends Component {
               จำนวนที่ยืม (ชุด) :{' '}
             </Text>
             <Picker
-              selectedValue={this.state.selectedLabel}
-              onValueChange={this.Show.bind()}>
+              selectedValue={this.state.selectedLabel1}
+              onValueChange={this.Show1.bind()}>
               <Picker.Item label="1" value="1 ชุด"></Picker.Item>
               <Picker.Item label="2" value="2 ชุด"></Picker.Item>
               <Picker.Item label="3" value="3 ชุด"></Picker.Item>
@@ -148,6 +152,7 @@ export default class Borrow extends Component {
               onPress={() => navigation.navigate('')}
             />
           </View>
+          
         </View>
       </ImageBackground>
     );

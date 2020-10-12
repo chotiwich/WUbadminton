@@ -6,7 +6,7 @@ import React from 'react';
 import {Component} from 'react';
 
 //Import all required component
-import {View, Text, Picker, ImageBackground, Button} from 'react-native';
+import {View, Text, Picker, ImageBackground, Button,TextInput,ScrollView} from 'react-native';
 
 export default class Bookcourt extends Component {
   constructor() {
@@ -17,12 +17,45 @@ export default class Bookcourt extends Component {
     alert(value);
     this.setState({selectedLabel: value});
   };
+  Show1 = (value) => {
+    alert(value);
+    this.setState({selectedLabel1: value});
+  };
   render() {
     return (
-      <ImageBackground
+      
+<ImageBackground
         source={require('D:/application/WUbadminton/Image/back07.png')}
         style={{flex: 1, resizeMode: 'cover'}}>
+        <ScrollView>
         <View>
+          <View style={{
+              minHeight: 10,
+              minWidth: 10,
+              elevation: 50,
+              borderRadius: 20,
+              backgroundColor: 'white',
+              fontSize: 20,
+              marginTop: 15,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+          <Text
+              style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                color: '#5e3881',
+              }}>
+              {' '}
+              วันที่ต้องการจอง  :{' '}
+            </Text>
+          <TextInput
+            placeholder="วันที่จอง ตย. 12/10/2563"
+            onChangeText={(text) => this.setState({text})}
+          />
+          </View>
           <View
             style={{
               backgroundColor: 'white',
@@ -48,8 +81,8 @@ export default class Bookcourt extends Component {
               ช่วงเวลาที่ต้องการจอง :{' '}
             </Text>
             <Picker
-              selectedValue={this.state.selectedLabel}
-              onValueChange={this.Show.bind()}>
+              selectedValue={this.state.selectedLabel1}
+              onValueChange={this.Show1.bind()}>
               <Picker.Item
                 label="กรุณาเลือกช่วงเวลาที่ท่านต้องการ"
                 value="กรุณาเลือกช่วงเวลาที่ท่านต้องการ"></Picker.Item>
@@ -130,42 +163,7 @@ export default class Bookcourt extends Component {
             </Picker>
           </View>
 
-          <View
-            style={{
-              backgroundColor: 'white',
-              textAlign: 'center',
-              minHeight: 10,
-              minWidth: 10,
-              elevation: 50,
-              borderRadius: 20,
-              fontSize: 20,
-              marginTop: 15,
-              marginLeft: 15,
-              marginRight: 15,
-              color: '#5e3881',
-            }}>
-            <Text
-              style={{
-                fontSize: 20,
-                marginTop: 15,
-                marginLeft: 15,
-                color: '#5e3881',
-              }}>
-              หมายเหตุ
-            </Text>
-            <Text
-              style={{
-                fontSize: 16,
-                marginTop: 10,
-                marginLeft: 20,
-                marginRight: 20,
-              }}>
-              คอร์สที่ 1 - 4 จองได้ตั้งแต่เวลา 15.30 - 21.00 น.
-            </Text>
-            <Text style={{fontSize: 16, marginTop: 10, marginLeft: 20}}>
-              คอร์สที่ 5 - 8 จองได้ตั้งแต่เวลา 15.30 - 18.00 น.
-            </Text>
-          </View>
+          
           <View
             style={[
               {width: '95%', borderRadius: 30, margin: 10, marginTop: 20},
@@ -176,8 +174,22 @@ export default class Bookcourt extends Component {
               onPress={() => navigation.navigate('')}
             />
           </View>
+          <View
+            style={[
+              {width: '95%', borderRadius: 30, margin: 10, marginTop: 10},
+            ]}>
+            <Button
+              title="รายการจองสนาม"
+              color="#5e3881"
+              onPress={() => navigation.navigate('')}
+            />
+          </View>
         </View>
+     
+
+      </ScrollView>
       </ImageBackground>
+      
     );
   }
 }
