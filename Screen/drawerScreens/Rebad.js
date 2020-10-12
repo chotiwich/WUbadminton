@@ -7,6 +7,7 @@ export default class Rebad extends Component {
     super();
 
     this.state = {
+      id:'',
       people_name: '',
       type_borrow: '',
       num_borrow: '',
@@ -21,6 +22,7 @@ export default class Rebad extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        id: this.state.id,
         people_name: this.state.people_name,
 
         type_borrow: this.state.type_borrow,
@@ -44,6 +46,15 @@ export default class Rebad extends Component {
         <Text style={styles.title}>User Registration Form</Text>
 
         <TextInput
+          placeholder="Enter ID"
+          onChangeText={(id) =>
+            this.setState({id: id})
+          }
+          underlineColorAndroid="transparent"
+          style={styles.TextInputStyleClass}
+        />
+
+        <TextInput
           placeholder="Enter User Name"
           onChangeText={(people_name) =>
             this.setState({people_name: people_name})
@@ -53,7 +64,7 @@ export default class Rebad extends Component {
         />
 
         <TextInput
-          placeholder="Enter User Email"
+          placeholder="Enter type borrow"
           onChangeText={(type_borrow) =>
             this.setState({type_borrow: type_borrow})
           }
@@ -62,7 +73,7 @@ export default class Rebad extends Component {
         />
 
         <TextInput
-          placeholder="Enter User Password"
+          placeholder="Enter num borrow"
           onChangeText={(num_borrow) => this.setState({num_borrow: num_borrow})}
           underlineColorAndroid="transparent"
           style={styles.TextInputStyleClass}
