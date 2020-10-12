@@ -18,6 +18,7 @@ import Schedule from './drawerScreens/Schedule';
 import Profile from './drawerScreens/Profile';
 import Graph from './drawerScreens/Graph';
 import SettingsScreen from './drawerScreens/SettingsScreen';
+import DailySummary from './drawerScreens/DailySummary';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
 
@@ -147,6 +148,20 @@ const nineActivity_StackNavigator = createStackNavigator({
   },
 });
 
+const tenActivity_StackNavigator = createStackNavigator({
+  First: {
+    screen: DailySummary,
+    navigationOptions: ({navigation}) => ({
+      title: 'Daily Summary',
+      headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#5e3881',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const DrawerNavigatorRoutes = createDrawerNavigator(
   {
     HomeScreen: {
@@ -201,6 +216,12 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
       screen: nineActivity_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Schedule',
+      },
+    },
+    DailySummary: {
+      screen: tenActivity_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'DailySummary',
       },
     },
   },

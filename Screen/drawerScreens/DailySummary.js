@@ -3,7 +3,7 @@ import React, { Component } from 'react';
  
 import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button ,Text} from 'react-native';
  
-export default class MainProject extends Component {
+export default class DailySummary extends Component {
  
 constructor(props) {
  

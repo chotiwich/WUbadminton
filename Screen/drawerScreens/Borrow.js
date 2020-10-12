@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
  
-import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button } from 'react-native';
+import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button ,Text ,ScrollView } from 'react-native';
  
 export default class MainProject extends Component {
  
@@ -64,45 +64,184 @@ fetch('http://172.20.10.5/wucourt/borrow_equipment.php', {
       <ImageBackground
       source={require('D:/application/WUbadminton/Image/back07.png')}
       style={{flex: 1, resizeMode: 'cover'}}>
-    <View style={styles.MainContainer}>
+    
+    <ScrollView>
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Student ID :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
     <TextInput
-          placeholder="id"
+          placeholder="Student ID "
           onChangeText={TextInputcustomerID => this.setState({TextInputcustomerID})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
         />
-       
-      <TextInput
-       placeholder="equipment name"
+    </View>
+    </View>
+    
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Equipment Name :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+       placeholder="Equipment Name"
         onChangeText={TextInputName => this.setState({TextInputName})}
         underlineColorAndroid='transparent'
         style={styles.TextInputStyleClass}
         />
 
-        <TextInput
-          placeholder="count"
+    </View>
+
+    </View>
+    
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Count :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Count"
           onChangeText={TextInputNum => this.setState({TextInputNum})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
         />
+    </View>   
 
-        <TextInput
-          placeholder="time"
+    </View>
+    
+    
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Time :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Time"
           onChangeText={TextInputTime => this.setState({TextInputTime})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
         />
-        <TextInput
-          placeholder="date"
+
+    </View>
+    
+    </View>  
+
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Date :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Date"
           onChangeText={TextInputTeleDate => this.setState({TextInputTeleDate})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
         />
+      
+    </View>
+    </View>
         
-        
-        <Button title="Insert Text Input Data to Server" onPress={this.InsertDataToServer} color="#2196F3" />
-       
-      </View>
+     <View style={[
+              {width: '95%', borderRadius: 30, margin: 10, marginTop: 20},
+            ]}>
+      <Button title="Confirm" onPress={this.InsertDataToServer} color="#5e3881" />
+    </View>   
+
+    </ScrollView>
+
+      
       </ImageBackground>    
     );
     
@@ -111,21 +250,16 @@ fetch('http://172.20.10.5/wucourt/borrow_equipment.php', {
 }
 const styles = StyleSheet.create({
  
-MainContainer :{
- 
-justifyContent: 'center',
-flex:1,
-margin: 10
-},
+
+
+
 
 TextInputStyleClass: {
 
-textAlign: 'center',
-marginBottom: 7,
-height: 40,
-borderWidth: 1,
-// Set border Hex Color Code Here.
- borderColor: '#FF5722',
+  fontSize: 20,
+  marginTop: 10,
+  paddingBottom: 10,
+  color: '#5e3881',
  
 // Set border Radius.
  //borderRadius: 10 ,

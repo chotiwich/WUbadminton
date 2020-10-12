@@ -47,6 +47,10 @@ const CustomSidebarMenu = (props) => {
       screenToNavigate: 'Schedule',
     },
     {
+      navOptionName: 'Daily Summary',
+      screenToNavigate: 'DailySummary',
+    },
+    {
       navOptionName: 'Settings',
       screenToNavigate: 'SettingsScreen',
     },
