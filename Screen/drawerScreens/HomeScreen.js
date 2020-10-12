@@ -5,7 +5,7 @@
 import React from 'react';
 
 //Import all required component
-import {View, Text, ImageBackground, Button, ScrollView} from 'react-native';
+import {View, Text, ImageBackground, Button, ScrollView , Image} from 'react-native';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 import {LocaleConfig} from 'react-native-calendars';
@@ -24,12 +24,32 @@ const HomeScreen = ({navigation}) => {
     <ImageBackground
       source={require('D:/application/WUbadminton/Image/back08.png')}
       style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+    
+    
+    
     <View
       style={{
         flex: 1,
         marginTop: 0,
       }}>
       <ScrollView>
+      <View style={{
+            backgroundColor: 'white',
+            textAlign: 'center',
+            minHeight: 10,
+            minWidth: 10,
+            elevation: 50,
+            borderRadius: 20,
+            fontSize: 20,
+            marginTop: 15,
+            marginLeft: 15,
+            marginRight: 15,
+            color: '#5e3881',
+          }} >
+    <Image source = {{uri:'https://ocd.wu.ac.th/photo/components/com_eventgallery/helpers/image.php?&mode=full&folder=300561001&file=IMG_7395.jpg'}}
+   style = {{ width: 365, height: 170 }}
+   />
+    </View>
         <View style={{
             backgroundColor: 'white',
             textAlign: 'center',
@@ -82,7 +102,7 @@ const HomeScreen = ({navigation}) => {
               marginLeft: 15,
               color: '#5e3881',
             }}>
-            ระเบียบข้อปฏิบัติ
+            Regulations
           </Text>
           <Text
             style={{
@@ -92,7 +112,7 @@ const HomeScreen = ({navigation}) => {
               elevation: 20,
               marginLeft: 20,
             }}>
-            1. ต้องแต่งกายด้วยชุดกีฬา และรองเท้ากีฬาเท้านั้น
+            1. Must dress in sportswear And sports shoes that foot.
           </Text>
           <Text
             style={{
@@ -101,7 +121,7 @@ const HomeScreen = ({navigation}) => {
               marginLeft: 20,
               marginRight: 20,
             }}>
-            2. ต้องตรวจสอบว่ารองเท้าปราศจากดินทรายก่อนลงใช้สนามทุกครั้ง
+           2. Make sure your shoes are free of sand before using the field every time.
           </Text>
           <Text
             style={{
@@ -110,7 +130,7 @@ const HomeScreen = ({navigation}) => {
               marginLeft: 20,
               marginRight: 20,
             }}>
-            3. การใช้บริการจองสนามสามารถเข้าใช้ครั้งละ 30 นาทีต่อการจอง 1 รอบ
+            3. The course reservation service can be used for 30 minutes per time per booking.
           </Text>
           <Text
             style={{
@@ -119,9 +139,7 @@ const HomeScreen = ({navigation}) => {
               marginLeft: 20,
               marginRight: 20,
             }}>
-            4. เจ้าหน้าที่ของโครงการศูนย์กีฬาและสุขภาพสามารถตักเตือน
-            และตัดสิทธิ์การเข้าใช้บริการได้
-            หากผู้เข้าใช้บริการไม่ปฏิบัติตามกฎเกณฑ์ที่กำหนด
+            4. Staff of the Sports and Health Center Project can warn and disqualify access to the service. If the user does not comply with the rules set.
           </Text>
         </View>
 
@@ -152,19 +170,19 @@ const HomeScreen = ({navigation}) => {
               marginLeft: 15,
               color: '#5e3881',
             }}>
-            อัตราค่าเข้าใช้บริการ
+            Service fee
           </Text>
           <Text style={{fontSize: 16, marginTop: 10, marginLeft: 20}}>
-            1. นักศึกษา , บุคลากร ฟรี{' '}
+          1. Student, staff Free{' '}
           </Text>
           <Text style={{fontSize: 16, marginTop: 10, marginLeft: 20}}>
-            2. สมาชิกรายปี ฟรี{' '}
+          2. Free annual membership{' '}
           </Text>
           <Text style={{fontSize: 16, marginTop: 10, marginLeft: 20}}>
-            3. บุคลากรภายนอก 120 บาท/สนาม/ชั่วโมง
+          3.Outside personnel 120 baht / court / hour
           </Text>
           <Text style={{fontSize: 16, marginTop: 10, marginLeft: 20}}>
-            4. บุคลากรภายนอก 40 บาท/คน/ครั้ง{' '}
+          4. External personnel 40 baht / person / time{' '}
           </Text>
         </View>
 
@@ -195,7 +213,7 @@ const HomeScreen = ({navigation}) => {
               marginLeft: 15,
               color: '#5e3881',
             }}>
-            เวลาเปิดทำการ
+            Business hours
           </Text>
           <Text
             style={{
@@ -204,23 +222,23 @@ const HomeScreen = ({navigation}) => {
               marginLeft: 20,
               marginRight: 20,
             }}>
-            วันจันทร์ - วันศุกร์ 15.00 - 21.00 น.
+            Monday - Friday 3:00 p.m. - 9:00 p.m.
           </Text>
           <Text style={{fontSize: 16, marginTop: 10, marginLeft: 20}}>
-            หยุดวันเสาร์-อาทิตย์ และวันหยุดนักขัตฤกษ์
+          Closed on Saturday - Sunday And public holidays
           </Text>
         </View>
 
-        <View style={[{width: '95%', margin: 10, marginTop: 5}]}>
+        <View style={[{width: '95%', margin: 10, marginTop: 10}]}>
           <Button
-            title="เช็คอิน"
+            title="Checkin"
             color="#5e3881"
             onPress={() => navigation.navigate('Checkin')}
           />
         </View>
         <View style={[{width: '95%', marginTop: 5, margin: 10}]}>
           <Button
-            title="จองสนาม"
+            title="Book court"
             color="#5e3881"
             onPress={() => navigation.navigate('Bookcourt')}
           />

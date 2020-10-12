@@ -19,39 +19,39 @@ import {ScrollView} from 'react-native-gesture-handler';
 const CustomSidebarMenu = (props) => {
   let items = [
     {
-      navOptionName: 'หน้าหลัก',
+      navOptionName: 'HomeScreen',
       screenToNavigate: 'HomeScreen',
     },
     {
-      navOptionName: 'ข้อมูลผู้ใช้',
+      navOptionName: 'Profile',
       screenToNavigate: 'Profile',
     },
     {
-      navOptionName: 'จองสนาม',
+      navOptionName: 'Bookcourt',
       screenToNavigate: 'Bookcourt',
     },
     {
-      navOptionName: 'เช็คอิน',
+      navOptionName: 'Checkin',
       screenToNavigate: 'Checkin',
     },
     {
-      navOptionName: 'ยืมอุปกรณ์',
+      navOptionName: 'Borrow',
       screenToNavigate: 'Borrow',
     },
     {
-      navOptionName: 'คืนอุปกรณ์',
+      navOptionName: 'Rebad',
       screenToNavigate: 'Rebad',
     },
     {
-      navOptionName: 'ข้อมูลการแข่งขัน',
+      navOptionName: 'Schedule',
       screenToNavigate: 'Schedule',
     },
     {
-      navOptionName: 'การตั้งค่า',
+      navOptionName: 'Settings',
       screenToNavigate: 'SettingsScreen',
     },
     {
-      navOptionName: 'ออกจากระบบ',
+      navOptionName: 'logout',
       screenToNavigate: 'logout',
     },
   ];
@@ -95,7 +95,7 @@ const CustomSidebarMenu = (props) => {
               style={{
                 fontFamily: 'Prompt-Bold',
                 fontSize: 25,
-                color: '#307ecc',
+                color: '#5e3881',
               }}>
               {'C'.charAt(0)}
             </Text>
@@ -166,7 +166,7 @@ const stylesSidebar = StyleSheet.create({
   profileHeaderLine: {
     height: 1,
     marginHorizontal: 20,
-    backgroundColor: '#e2e2e2',
+    backgroundColor: 'white',
     marginTop: 15,
     marginBottom: 10,
   },

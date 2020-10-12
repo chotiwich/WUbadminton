@@ -39,7 +39,7 @@ const SecondActivity_StackNavigator = createStackNavigator({
   First: {
     screen: SettingsScreen,
     navigationOptions: ({navigation}) => ({
-      title: 'การตั้งค่า',
+      title: 'Settings',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -53,7 +53,7 @@ const thirdActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Checkin,
     navigationOptions: ({navigation}) => ({
-      title: 'เช็คอิน',
+      title: 'Checkin',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -67,7 +67,7 @@ const fourActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Bookcourt,
     navigationOptions: ({navigation}) => ({
-      title: 'จองสนาม',
+      title: 'Bookcourt',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -81,7 +81,7 @@ const fiveActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Borrow,
     navigationOptions: ({navigation}) => ({
-      title: 'ยืมอุปกรณ์',
+      title: 'Borrow',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -95,7 +95,7 @@ const sixActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Rebad,
     navigationOptions: ({navigation}) => ({
-      title: 'คืนอุปกรณ์',
+      title: 'Rebad',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -109,7 +109,7 @@ const sevenActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Schedule,
     navigationOptions: ({navigation}) => ({
-      title: 'ข้อมูลการแข่งขัน',
+      title: 'Schedule',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -123,7 +123,7 @@ const eightActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Profile,
     navigationOptions: ({navigation}) => ({
-      title: 'ข้อมูลผู้ใช้',
+      title: 'Profile',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
@@ -137,7 +137,7 @@ const nineActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Graph,
     navigationOptions: ({navigation}) => ({
-      title: 'สถิติต่าง ๆ',
+      title: 'Graph',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',
