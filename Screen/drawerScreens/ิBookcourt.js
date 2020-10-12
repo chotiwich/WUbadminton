@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
  
-import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button ,Text} from 'react-native';
+import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button ,Text,ScrollView} from 'react-native';
  
 export default class MainProject extends Component {
  
@@ -10,7 +10,7 @@ constructor(props) {
     super(props)
  
     this.state = {
-      
+      TextInputCustomerID:'',
       TextInputCourtName: '',
       TextInputTime: '',
       TextInputDate: ''
@@ -20,6 +20,7 @@ constructor(props) {
   }
   
   InsertDataToServer = () =>{
+    const { TextInputCustomerID }  = this.state ;
     const { TextInputCourtName }  = this.state ;
     const { TextInputTime }  = this.state ;
     const { TextInputDate }  = this.state ;
@@ -32,7 +33,8 @@ fetch('http://172.20.10.5/wucourt/booking_court.php', {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-  
+    customer_id: TextInputCustomerID,
+
     court_name: TextInputCourtName,
 
     court_time: TextInputTime,
@@ -58,6 +60,44 @@ fetch('http://172.20.10.5/wucourt/booking_court.php', {
       <ImageBackground
       source={require('D:/application/WUbadminton/Image/back07.png')}
       style={{flex: 1, resizeMode: 'cover'}}>
+        <View>
+
+          <ScrollView>
+          <View>
+      <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+           Student id :
+            </Text> 
+      <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+          <TextInput
+          // Adding hint in Text Input using Place holder.
+          placeholder="Enter date"
+          onChangeText={TextInputCustomerID => this.setState({TextInputCustomerID})}
+          // Making the Under line Transparent.
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        /> 
+    </View>   
+      </View>
+
+      
     
       <View>
       <View>
@@ -138,8 +178,6 @@ fetch('http://172.20.10.5/wucourt/booking_court.php', {
      </View>
 
     </View>
-     
-    
     <View>
     <View>
      <Text  style={{
@@ -175,9 +213,7 @@ fetch('http://172.20.10.5/wucourt/booking_court.php', {
  
           style={styles.TextInputStyleClass}
         />
-
       </View>
-
     </View>
     <View style={{
                backgroundColor: 'white',
@@ -205,18 +241,12 @@ fetch('http://172.20.10.5/wucourt/booking_court.php', {
       <Button title="Confirm" onPress={this.InsertDataToServer} color="#5e3881" />
 
       </View>
-
     </View>
-
-   
-
-    
-            
+    </ScrollView>
+    </View>       
       </ImageBackground>    
     );
-    
   }
-  
 }
 const styles = StyleSheet.create({
  

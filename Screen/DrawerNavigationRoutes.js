@@ -96,7 +96,7 @@ const sixActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Rebad,
     navigationOptions: ({navigation}) => ({
-      title: 'Rebad',
+      title: 'Receive',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#5e3881',

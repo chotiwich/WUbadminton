@@ -47,7 +47,7 @@ const HomeScreen = ({navigation}) => {
             color: '#5e3881',
           }} >
     <Image source = {{uri:'https://ocd.wu.ac.th/photo/components/com_eventgallery/helpers/image.php?&mode=full&folder=300561001&file=IMG_7395.jpg'}}
-   style = {{ width: 365, height: 170 }}
+   style = {{ width: 330, height: 170 }}
    />
     </View>
         <View style={{

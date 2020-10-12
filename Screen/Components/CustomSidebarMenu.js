@@ -40,7 +40,7 @@ const CustomSidebarMenu = (props) => {
     },
     {
       navOptionName: 'Receive',
-      screenToNavigate: 'Receive',
+      screenToNavigate: 'Rebad',
     },
     {
       navOptionName: 'Schedule',

@@ -10,7 +10,7 @@ constructor(props) {
     super(props)
  
     this.state = {
-      
+      TextInputID: '',
       TextInputName: '',
       TextInputNicename: '',
       TextInputSex: '',
@@ -23,6 +23,7 @@ constructor(props) {
   }
   
   InsertDataToServer = () =>{
+    const { TextInputID }  = this.state ;
     const { TextInputName }  = this.state ;
     const { TextInputNicename }  = this.state ;
     const { TextInputSex }  = this.state ;
@@ -33,14 +34,14 @@ constructor(props) {
 
 
 
-fetch('http://172.20.10.3/wucourt/Register.php', {
+fetch('http://172.20.10.5/wucourt/Register.php', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    
+    CID: TextInputID,
     CName: TextInputName,
     CNicename: TextInputNicename,
     CSex: TextInputSex,
@@ -73,6 +74,47 @@ fetch('http://172.20.10.3/wucourt/Register.php', {
       
       <ScrollView>
 
+      <View>
+      <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+           id :
+            </Text>
+      <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+              
+       <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              borderRadius: 10,
+              fontSize: 20,
+              color: '#5e3881',
+            }}>
+        <TextInput
+          placeholder="id"
+          onChangeText={TextInputID => this.setState({TextInputID})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+       </View>
+       </View>
+
+      </View>
       <View>
       <Text  style={{
                 fontSize: 20,
