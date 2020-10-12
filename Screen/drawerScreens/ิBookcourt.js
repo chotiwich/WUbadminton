@@ -179,7 +179,23 @@ fetch('http://172.20.10.5/wucourt/booking_court.php', {
       </View>
 
     </View>
-     
+    <View style={{
+               backgroundColor: 'white',
+               textAlign: 'center',
+               minHeight: 5,
+               minWidth: 5,
+               elevation: 50,
+               fontSize: 20,
+               marginTop: 15,
+               marginLeft: 15,
+               marginRight: 15,
+               color: '#5e3881',
+            }}>
+            <Text style={{fontSize:16,color:'#5e3881'}}>Note :</Text>
+            <Text style={{marginLeft: 20,}}>1.Example Date : 10/10/2020</Text>
+            <Text style={{marginLeft: 20,}}>2.Select Time : 15.30-16.00 , 16.00-16.30 , 16.30-17.00 , 17.00-17.30 , 17.30-18.00 , 18.00-18.30 , 18.30-19.00 , 19.00-19.30 , 19.30-20.00 , 20.00-20.30 , 20.30-21.00</Text>
+            <Text style={{marginLeft: 20,}}>3.Select Court : 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8</Text>
+    </View>
 
     <View>
     </View>
@@ -191,6 +207,8 @@ fetch('http://172.20.10.5/wucourt/booking_court.php', {
       </View>
 
     </View>
+
+   
 
     
             

@@ -106,6 +106,73 @@ fetch('http://172.20.10.5/wucourt/borrow_equipment.php', {
                 marginLeft:20,
                 color: '#5e3881',
               }}>
+            Date :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Date"
+          onChangeText={TextInputTeleDate => this.setState({TextInputTeleDate})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+      
+    </View>
+    </View>
+
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Time :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Time"
+          onChangeText={TextInputTime => this.setState({TextInputTime})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+
+    </View>
+    
+    </View>  
+
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
             Equipment Name :
             </Text> 
     <View style={{
@@ -166,73 +233,27 @@ fetch('http://172.20.10.5/wucourt/borrow_equipment.php', {
     </View>
     
     
-    <View>
-    <Text  style={{
-                fontSize: 20,
-                marginTop: 20,
-                paddingBottom: 10,
-                marginLeft:20,
-                color: '#5e3881',
-              }}>
-            Time :
-            </Text> 
-    <View style={{
-              backgroundColor: 'white',
-              textAlign: 'center',
-              minHeight: 5,
-              minWidth: 5,
-              elevation: 50,
-              borderRadius: 10,
-              fontSize: 20,
-              marginTop: 5,
-              marginLeft: 15,
-              marginRight: 15,
-              color: '#5e3881',
-            }}>
-    <TextInput
-          placeholder="Time"
-          onChangeText={TextInputTime => this.setState({TextInputTime})}
-          underlineColorAndroid='transparent'
-          style={styles.TextInputStyleClass}
-        />
-
-    </View>
     
-    </View>  
 
-    <View>
-    <Text  style={{
-                fontSize: 20,
-                marginTop: 20,
-                paddingBottom: 10,
-                marginLeft:20,
-                color: '#5e3881',
-              }}>
-            Date :
-            </Text> 
-    <View style={{
-              backgroundColor: 'white',
-              textAlign: 'center',
-              minHeight: 5,
-              minWidth: 5,
-              elevation: 50,
-              borderRadius: 10,
-              fontSize: 20,
-              marginTop: 5,
-              marginLeft: 15,
-              marginRight: 15,
-              color: '#5e3881',
-            }}>
-    <TextInput
-          placeholder="Date"
-          onChangeText={TextInputTeleDate => this.setState({TextInputTeleDate})}
-          underlineColorAndroid='transparent'
-          style={styles.TextInputStyleClass}
-        />
-      
-    </View>
-    </View>
+    
         
+    <View style={{
+               backgroundColor: 'white',
+               textAlign: 'center',
+               minHeight: 5,
+               minWidth: 5,
+               elevation: 50,
+               fontSize: 20,
+               marginTop: 15,
+               marginLeft: 15,
+               marginRight: 15,
+               color: '#5e3881',
+            }}>
+            <Text style={{fontSize:16,color:'#5e3881'}}>Note :</Text>
+            <Text style={{marginLeft: 20,}}>1. Select Equipment Name : Badminton racket , Petanque balls , Petanque core ball </Text>
+            <Text style={{marginLeft: 20,}}>2. Can borrow up to 4 pieces.</Text>
+           
+    </View>
      <View style={[
               {width: '95%', borderRadius: 30, margin: 10, marginTop: 20},
             ]}>

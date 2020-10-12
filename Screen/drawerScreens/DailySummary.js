@@ -63,61 +63,18 @@ export default class SettingScreen extends Component {
                       marginRight: 10,
                       color: '#5e3881',
                     }}>
-                    <Text style={{fontSize: 25, marginTop: 10, marginLeft: 50}}>
-                      ข้อมูลผู้ใช้
+                    
+                    <Text style={{fontSize: 20, marginTop: 10, marginLeft: 20 ,color:'#5e3881'}}>
+                      {item.CName}
                     </Text>
                     <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      ชื่อผู้ใช้ : {item.CName}
+                     Booking Date : {item.court_date}
                     </Text>
                     <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      ชื่อเล่น : {item.CNicename}
+                     Booking Time : {item.court_time}
                     </Text>
                     <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      เพศ: {item.CSex}
-                    </Text>
-                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      เบอร์โทร: {item.CTelephone}
-                    </Text>
-                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                     Email : {item.CEmail}
-                    </Text>
-                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      อาชีพ : {item.CProfession}
-                    </Text>
-                  </View>
-                )}
-              />
-            </View>
-            <View>
-              <FlatList
-                data={this.state.data}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({item}) => (
-                  <View
-                    style={{
-                      backgroundColor: 'white',
-                      textAlign: 'center',
-                      minHeight: 10,
-                      minWidth: 10,
-                      elevation: 50,
-                      borderRadius: 10,
-                      fontSize: 20,
-                      marginTop: 15,
-                      marginLeft: 10,
-                      marginRight: 10,
-                      color: '#5e3881',
-                    }}>
-                    <Text style={{fontSize: 25, marginTop: 10, marginLeft: 50}}>
-                      ข้อมูลการจอง
-                    </Text>
-                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      วันที่จอง : {item.court_date}
-                    </Text>
-                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      เวลาที่จอง : {item.court_time}
-                    </Text>
-                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
-                      คอร์ด : {item.court_name}
+                     Court : {item.court_name}
                     </Text>
                   </View>
                 )}
