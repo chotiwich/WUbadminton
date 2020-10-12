@@ -1,284 +1,152 @@
-  
-/* This is an Login Registration example from https://aboutreact.com/ */
-/* https://aboutreact.com/react-native-login-and-signup/ */
 
-//Import React and Hook we needed
-import React, {Component} from 'react';
-
-//Import all required component
-import {
-  StyleSheet,
-  TextInput,
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  KeyboardAvoidingView,
-  Keyboard,
-  TouchableOpacity,
-  ScrollView,
-  AppRegistry,
-  Alert,
-} from 'react-native';
-import Loader from './Components/loader';
-
-class RegisterScreen extends Component {
-  constructor() {
-    super();
-
+import React, { Component } from 'react';
+ 
+import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button } from 'react-native';
+ 
+export default class MainProject extends Component {
+ 
+constructor(props) {
+ 
+    super(props)
+ 
     this.state = {
-      email: '',
-      password: '',
-      student_id: '',
-      name: '',
-      school_of: '',
-      sex: '',
-      tel: '',
-      job: '',
-    };
+      
+      TextInputName: '',
+      TextInputNicename: '',
+      TextInputSex: '',
+      TextInputTelephone: '',
+      TextInputEmail: '',
+      TextInputProfession: '',
+      TextInputPassword: ''
+    }
+ 
   }
+  
+  InsertDataToServer = () =>{
+    const { TextInputName }  = this.state ;
+    const { TextInputNicename }  = this.state ;
+    const { TextInputSex }  = this.state ;
+    const { TextInputTelephone }  = this.state ;
+    const { TextInputProfession }  = this.state ;
+    const { TextInputEmail }  = this.state ;
+    const { TextInputPassword }  = this.state ;
 
-  UserRegistrationFunction = () => {
-    fetch('http://172.20.10.3/WUbadminton/register.php', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type':'application/json',
-      },
-      body: JSON.stringify({
-        email: this.state.email,
 
-        password: this.state.password,
 
-        student_id: this.state.student_id,
+fetch('http://172.20.10.5/wucourt/Register.php', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    
+    CName: TextInputName,
+    CNicename: TextInputNicename,
+    CSex: TextInputSex,
+    CTelephone: TextInputTelephone,
+    CProfession: TextInputProfession,
+    CEmail: TextInputEmail,
+    CPassword: TextInputPassword,
 
-        name: this.state.name,
+  })
 
-        school_of: this.state.school_of,
-
-        sex: this.state.sex,
-
-        tel: this.state.tel,
-
-        job: this.state.job,
-      }),
-    })
-      .then((response) => response.json())
+}).then((response) => response.json())
       .then((responseJson) => {
-        // Showing response message coming from server after inserting records.
+
+// Showing response message coming from server after inserting records.
         Alert.alert(responseJson);
-      })
-      .catch((error) => {
+
+      }).catch((error) => {
         console.error(error);
       });
-  };
+ 
+ 
+  }
+ 
   render() {
-    // if (isRegistraionSuccess) {
-    //   return (
-    //     <View
-    //       style={{
-    //         flex: 1,
-    //         backgroundColor: '#FFE4E1',
-    //         justifyContent: 'center',
-    //       }}>
-    //       <Image
-    //         source={require('../Image/success.png')}
-    //         style={{height: 150, resizeMode: 'contain', alignSelf: 'center'}}
-    //       />
-    //       <Text style={styles.successTextStyle}>Registration Successful.</Text>
-    //       <TouchableOpacity
-    //         style={styles.buttonStyle}
-    //         activeOpacity={0.5}
-    //         onPress={() => props.navigation.navigate('LoginScreen')}>
-    //         <Text style={styles.buttonTextStyle}>Login Now</Text>
-    //       </TouchableOpacity>
-    //     </View>
-    //   );
-    // }
-
+    
     return (
       <ImageBackground
-        source={require('D:/application/WUbadminton/Image/back07.png')}
-        style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
-        <View>
-          <ScrollView keyboardShouldPersistTaps="handled">
-            <View style={{alignItems: 'center'}}>
-              <Image
-                source={require('../Image/wubadlogo.png')}
-                style={{
-                  width: '50%',
-                  height: 100,
-                  resizeMode: 'contain',
-                  margin: 30,
-                }}
-              />
-            </View>
-            <KeyboardAvoidingView enabled>
-              {/* <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(id) => this.setState({id: id})}
-                  underlineColorAndroid="#778899"
-                  placeholder="Enter ID"
-                  placeholderTextColor="#778899"
-                  autoCapitalize="sentences"
-                  returnKeyType="next"
-                />
-              </View> */}
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(email) => this.setState({email: email})}
-                  placeholder="Email"
-                  placeholderTextColor="#778899"
-                  autoCapitalize="sentences"
-                  returnKeyType="next"
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(password) => this.setState({password: password})}
-                  placeholder="Password"
-                  placeholderTextColor="#778899"
-                  keyboardType="email-address"
-                  returnKeyType="next"
-                  blurOnSubmit={false}
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(student_id) =>
-                    this.setState({student_id: student_id})
-                  }
-                  placeholder="Student ID"
-                  placeholderTextColor="#778899"
-                  keyboardType="numeric"
-                  blurOnSubmit={false}
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(name) =>
-                    this.setState({name: name})
-                  }
-                  placeholder="Full Name"
-                  placeholderTextColor="#778899"
-                  autoCapitalize="sentences"
-                  returnKeyType="next"
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(school_of) =>
-                    this.setState({school_of: school_of})
-                  }
-                  placeholder="School of"
-                  placeholderTextColor="#778899"
-                  autoCapitalize="sentences"
-                  returnKeyType="next"
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(sex) =>
-                    this.setState({sex: sex})
-                  }
-                  placeholder="Sex"
-                  placeholderTextColor="#778899"
-                  autoCapitalize="sentences"
-                  returnKeyType="next"
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(tel) =>
-                    this.setState({tel: tel})
-                  }
-                  placeholder="Tel"
-                  placeholderTextColor="#778899"
-                  keyboardType="numeric"
-                  blurOnSubmit={false}
-                />
-              </View>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.inputStyle}
-                  onChangeText={(job) =>
-                    this.setState({job: job})
-                  }
-                  placeholder="Job"
-                  placeholderTextColor="#778899"
-                  autoCapitalize="sentences"
-                  returnKeyType="next"
-                />
-              </View>
-              <TouchableOpacity
-                style={styles.buttonStyle}
-                activeOpacity={0.5}
-                onPress={this.UserRegistrationFunction}>
-                <Text style={styles.buttonTextStyle}>REGISTER</Text>
-              </TouchableOpacity>
-            </KeyboardAvoidingView>
-          </ScrollView>
-        </View>
-      </ImageBackground>
+      source={require('D:/application/WUbadminton/Image/back07.png')}
+      style={{flex: 1, resizeMode: 'cover'}}>
+    <View style={styles.MainContainer}>
+       
+      <TextInput
+       placeholder="Enter name"
+        onChangeText={TextInputName => this.setState({TextInputName})}
+        underlineColorAndroid='transparent'
+        style={styles.TextInputStyleClass}
+        />
+
+        <TextInput
+          placeholder="Enter Nicename"
+          onChangeText={TextInputNicename => this.setState({TextInputNicename})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+
+        <TextInput
+          placeholder="Enter Sex"
+          onChangeText={TextInputSex => this.setState({TextInputSex})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+        <TextInput
+          placeholder="Enter Telephone"
+          onChangeText={TextInputTelephone => this.setState({TextInputTelephone})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+        <TextInput
+          placeholder="Enter Profession"
+          onChangeText={TextInputProfession => this.setState({TextInputProfession})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+        <TextInput
+          placeholder="Enter Email"
+          onChangeText={TextInputEmail => this.setState({TextInputEmail})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+        <TextInput
+          placeholder="Enter Password"
+          onChangeText={TextInputPassword => this.setState({TextInputPassword})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+
+        <Button title="Insert Text Input Data to Server" onPress={this.InsertDataToServer} color="#2196F3" />
+       
+      </View>
+      </ImageBackground>    
     );
+    
   }
+  
 }
-export default RegisterScreen;
-
 const styles = StyleSheet.create({
-  SectionStyle: {
-    flexDirection: 'row',
-    height: 40,
-    marginTop: 20,
-    marginLeft: 35,
-    marginRight: 35,
-    margin: 10,
-  },
-  buttonStyle: {
-    backgroundColor: '#5e3881',
-    borderWidth: 0,
-    color: '#708090',
-    borderColor: '#4169E1',
-    height: 40,
-    alignItems: 'center',
-    borderRadius: 30,
-    marginLeft: 35,
-    marginRight: 35,
-    marginTop: 20,
-    marginBottom: 20,
-  },
-  buttonTextStyle: {
-    color: '#FFFAFA',
-    paddingVertical: 10,
-    fontSize: 16,
-  },
-  inputStyle: {
-    flex: 1,
-    color: '#708090',
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderWidth: 1,
-    borderRadius: 30,
-    borderColor: '#708090',
-  },
-  errorTextStyle: {
-    color: 'red',
-    textAlign: 'center',
-    fontSize: 14,
-  },
-  successTextStyle: {
-    color: '#32CD32',
-    textAlign: 'center',
-    fontSize: 18,
-    padding: 30,
-  },
-});
+ 
+MainContainer :{
+ 
+justifyContent: 'center',
+flex:1,
+margin: 10
+},
 
+TextInputStyleClass: {
+
+textAlign: 'center',
+marginBottom: 7,
+height: 40,
+borderWidth: 1,
+// Set border Hex Color Code Here.
+ borderColor: '#FF5722',
+ 
+// Set border Radius.
+ //borderRadius: 10 ,
+}
+ 
+});
+AppRegistry.registerComponent('MainProject', () => MainProject);
