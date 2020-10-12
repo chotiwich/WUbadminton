@@ -1,224 +1,131 @@
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Alert,
+  ScrollView,
+  FlatList,
+  Button,
+  ImageBackground,
+} from 'react-native';
+// import Gallery from 'react-native-image-gallery';
 
-import React, { Component } from 'react';
- 
-import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button ,Text} from 'react-native';
- 
-export default class DailySummary extends Component {
- 
-constructor(props) {
- 
-    super(props)
- 
+export default class SettingScreen extends Component {
+  constructor(props) {
+    super(props);
+
     this.state = {
-      
-      TextInputCourtName: '',
-      TextInputTime: '',
-      TextInputDate: ''
- 
-    }
- 
+      isLoading: true,
+    };
   }
-  
-  InsertDataToServer = () =>{
-    const { TextInputCourtName }  = this.state ;
-    const { TextInputTime }  = this.state ;
-    const { TextInputDate }  = this.state ;
 
-
-fetch('http://172.20.10.5/wucourt/booking_court.php', {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-  
-    court_name: TextInputCourtName,
-
-    court_time: TextInputTime,
-
-    court_date: TextInputDate
-
-  })
-
-}).then((response) => response.json())
+  componentDidMount() {
+    return fetch('http://172.20.10.5/wucourt/customer.php')
+      .then((response) => response.json())
       .then((responseJson) => {
-
-// Showing response message coming from server after inserting records.
-        Alert.alert(responseJson);
-
-      }).catch((error) => {
+        this.setState({data: responseJson});
+      })
+      .catch((error) => {
         console.error(error);
       });
   }
- 
+
+  clickEventListener() {
+    Alert.alert('Success', 'Product has beed added to cart');
+  }
+
   render() {
-    
     return (
       <ImageBackground
-      source={require('D:/application/WUbadminton/Image/back07.png')}
-      style={{flex: 1, resizeMode: 'cover'}}>
-    
-      <View>
-      <View>
-      <Text  style={{
-                fontSize: 20,
-                marginTop: 20,
-                paddingBottom: 10,
-                marginLeft:20,
-                color: '#5e3881',
-              }}>
-            Date:
-            </Text> 
-      <View style={{
-              backgroundColor: 'white',
-              textAlign: 'center',
-              minHeight: 5,
-              minWidth: 5,
-              elevation: 50,
-              borderRadius: 10,
-              fontSize: 20,
-              marginTop: 5,
-              marginLeft: 15,
-              marginRight: 15,
-              color: '#5e3881',
-            }}>
-          <TextInput
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter date"
-          onChangeText={TextInputDate => this.setState({TextInputDate})}
-          // Making the Under line Transparent.
-          underlineColorAndroid='transparent'
-          style={styles.TextInputStyleClass}
-        /> 
-    </View>   
-      </View>
-
-      </View>
-
-    <View> 
-    <View>
-     <Text  style={{
-                fontSize: 20,
-                marginTop: 20,
-                paddingBottom: 10,
-                marginLeft:20,
-                color: '#5e3881',
-              }}>
-            Time :
-            </Text> 
-     <View style={{
-              backgroundColor: 'white',
-              textAlign: 'center',
-              minHeight: 5,
-              minWidth: 5,
-              elevation: 50,
-              borderRadius: 10,
-              fontSize: 20,
-              marginTop: 5,
-              marginLeft: 15,
-              marginRight: 15,
-              color: '#5e3881',
-            }}>
-
-        <TextInput
-          
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter time"
- 
-          onChangeText={TextInputTime => this.setState({TextInputTime})}
-
-          // Making the Under line Transparent.
-          underlineColorAndroid='transparent'
- 
-          style={styles.TextInputStyleClass}
-        />
-      </View>
-
-     </View>
-
-    </View>
-     
-    
-    <View>
-    <View>
-     <Text  style={{
-                fontSize: 20,
-                marginTop: 20,
-                paddingBottom: 10,
-                marginLeft:20,
-                color: '#5e3881',
-              }}>
-            Court :
-            </Text> 
-     <View style={{
-              backgroundColor: 'white',
-              textAlign: 'center',
-              minHeight: 5,
-              minWidth: 5,
-              elevation: 50,
-              borderRadius: 10,
-              fontSize: 20,
-              marginTop: 5,
-              marginLeft: 15,
-              marginRight: 15,
-              color: '#5e3881',
-            }}>
-<TextInput
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter Court"
- 
-          onChangeText={TextInputCourtName => this.setState({TextInputCourtName})}
-
-          // Making the Under line Transparent.
-          underlineColorAndroid='transparent'
- 
-          style={styles.TextInputStyleClass}
-        />
-
-      </View>
-
-    </View>
-     
-
-    <View>
-    </View>
-      <View style={[
-              {width: '95%', borderRadius: 30, margin: 10, marginTop: 20},
-            ]}>
-      <Button title="Confirm" onPress={this.InsertDataToServer} color="#5e3881" />
-
-      </View>
-
-    </View>
-
-    
-            
-      </ImageBackground>    
+        source={require('D:/application/WUbadminton/Image/back07.png')}
+        style={{flex: 1, resizeMode: 'cover'}}>
+        <View>
+          <ScrollView>
+            <View>
+              <FlatList
+                data={this.state.data}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({item}) => (
+                  <View
+                    style={{
+                      backgroundColor: 'white',
+                      textAlign: 'center',
+                      minHeight: 10,
+                      minWidth: 10,
+                      elevation: 50,
+                      borderRadius: 10,
+                      fontSize: 20,
+                      marginTop: 15,
+                      marginLeft: 10,
+                      marginRight: 10,
+                      color: '#5e3881',
+                    }}>
+                    <Text style={{fontSize: 25, marginTop: 10, marginLeft: 50}}>
+                      ข้อมูลผู้ใช้
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      ชื่อผู้ใช้ : {item.CName}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      ชื่อเล่น : {item.CNicename}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      เพศ: {item.CSex}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      เบอร์โทร: {item.CTelephone}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                     Email : {item.CEmail}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      อาชีพ : {item.CProfession}
+                    </Text>
+                  </View>
+                )}
+              />
+            </View>
+            <View>
+              <FlatList
+                data={this.state.data}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({item}) => (
+                  <View
+                    style={{
+                      backgroundColor: 'white',
+                      textAlign: 'center',
+                      minHeight: 10,
+                      minWidth: 10,
+                      elevation: 50,
+                      borderRadius: 10,
+                      fontSize: 20,
+                      marginTop: 15,
+                      marginLeft: 10,
+                      marginRight: 10,
+                      color: '#5e3881',
+                    }}>
+                    <Text style={{fontSize: 25, marginTop: 10, marginLeft: 50}}>
+                      ข้อมูลการจอง
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      วันที่จอง : {item.court_date}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      เวลาที่จอง : {item.court_time}
+                    </Text>
+                    <Text style={{fontSize: 16, marginTop: 10, marginLeft: 50}}>
+                      คอร์ด : {item.court_name}
+                    </Text>
+                  </View>
+                )}
+              />
+            </View>
+          </ScrollView>
+        </View>
+      </ImageBackground>
     );
-    
   }
-  
 }
-const styles = StyleSheet.create({
- 
-MainContainer :{
- 
-justifyContent: 'center',
-flex:1,
-margin: 10
-},
-
-TextInputStyleClass: {
-
-  fontSize: 20,
-  marginTop: 20,
-  paddingBottom: 10,
-  color: '#5e3881',
- 
-// Set border Radius.
- //borderRadius: 10 ,
-}
- 
-});
-AppRegistry.registerComponent('MainProject', () => MainProject);
