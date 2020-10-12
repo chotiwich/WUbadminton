@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
  
-import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button } from 'react-native';
+import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button ,Text} from 'react-native';
  
 export default class MainProject extends Component {
  
@@ -50,8 +50,6 @@ fetch('http://192.168.43.210/wucourt/booking_court.php', {
       }).catch((error) => {
         console.error(error);
       });
- 
- 
   }
  
   render() {
@@ -60,19 +58,64 @@ fetch('http://192.168.43.210/wucourt/booking_court.php', {
       <ImageBackground
       source={require('D:/application/WUbadminton/Image/back07.png')}
       style={{flex: 1, resizeMode: 'cover'}}>
-    <View style={styles.MainContainer}>
-       
-      <TextInput
+    
+      <View>
+      <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Date:
+            </Text> 
+      <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+          <TextInput
           // Adding hint in Text Input using Place holder.
-          placeholder="Enter Court"
- 
-          onChangeText={TextInputCourtName => this.setState({TextInputCourtName})}
-
+          placeholder="Enter date"
+          onChangeText={TextInputDate => this.setState({TextInputDate})}
           // Making the Under line Transparent.
           underlineColorAndroid='transparent'
- 
           style={styles.TextInputStyleClass}
-        />
+        /> 
+    </View>   
+      </View>
+     
+     <View>
+     <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Time :
+            </Text> 
+     <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
 
         <TextInput
           
@@ -86,23 +129,55 @@ fetch('http://192.168.43.210/wucourt/booking_court.php', {
  
           style={styles.TextInputStyleClass}
         />
+      </View>
 
-        <TextInput
-          
+     </View>
+
+     <View>
+     <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Court :
+            </Text> 
+     <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+<TextInput
           // Adding hint in Text Input using Place holder.
-          placeholder="Enter Date"
+          placeholder="Enter Court"
  
-          onChangeText={TextInputDate => this.setState({TextInputDate})}
+          onChangeText={TextInputCourtName => this.setState({TextInputCourtName})}
 
           // Making the Under line Transparent.
           underlineColorAndroid='transparent'
  
           style={styles.TextInputStyleClass}
         />
- 
-        <Button title="Insert Text Input Data to Server" onPress={this.InsertDataToServer} color="#2196F3" />
-       
+
       </View>
+
+     </View>
+      <View style={[
+              {width: '95%', borderRadius: 30, margin: 10, marginTop: 20},
+            ]}>
+      <Button title="Confirm" onPress={this.InsertDataToServer} color="#5e3881" />
+
+      </View>
+            
       </ImageBackground>    
     );
     
@@ -120,12 +195,10 @@ margin: 10
 
 TextInputStyleClass: {
 
-textAlign: 'center',
-marginBottom: 7,
-height: 40,
-borderWidth: 1,
-// Set border Hex Color Code Here.
- borderColor: '#FF5722',
+  fontSize: 20,
+  marginTop: 20,
+  paddingBottom: 10,
+  color: '#5e3881',
  
 // Set border Radius.
  //borderRadius: 10 ,
