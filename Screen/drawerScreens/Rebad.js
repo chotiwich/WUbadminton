@@ -1,231 +1,269 @@
-import React, {Component} from 'react';
-
-import {StyleSheet, View, TextInput, Button, Text, Alert} from 'react-native';
-
-export default class Rebad extends Component {
-  constructor() {
-    super();
-
+import React, { Component } from 'react';
+ 
+import { ImageBackground,AppRegistry, StyleSheet, TextInput, View, Alert, Button ,Text ,ScrollView } from 'react-native';
+ 
+export default class MainProject extends Component {
+ 
+constructor(props) {
+ 
+    super(props)
+ 
     this.state = {
-      id:'',
-      people_name: '',
-      type_borrow: '',
-      num_borrow: '',
-    };
+      
+      TextInputName: '',
+      TextInputNum: '',
+      TextInputTime: '',
+      TextInputTeleDate: '',
+      TextInputEmail: '',
+      TextInputcustomerID: '',
+      TextInputPassword: ''
+    }
+ 
   }
+  
+  InsertDataToServer = () =>{
+    const { TextInputName }  = this.state ;
+    const { TextInputNum }  = this.state ;
+    const { TextInputTime }  = this.state ;
+    const { TextInputTeleDate }  = this.state ;
+    const { TextInputcustomerID }  = this.state ;
 
-  UserRegistrationFunction = () => {
-    fetch('http://172.20.10.3/WUBadminton/insert_borrow.php', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: this.state.id,
-        people_name: this.state.people_name,
 
-        type_borrow: this.state.type_borrow,
+fetch('http://172.20.10.5/wucourt/update_equipment.php', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    
+    equipment_name: TextInputName,
+    equipment_num: TextInputNum,
+    equipment_time: TextInputTime,
+    equipment_date: TextInputTeleDate,
+    customer_id: TextInputcustomerID,
+   
+  })
 
-        num_borrow: this.state.num_borrow,
-      }),
-    })
-      .then((response) => response.json())
+}).then((response) => response.json())
       .then((responseJson) => {
-        // Showing response message coming from server after inserting records.
+
+// Showing response message coming from server after inserting records.
         Alert.alert(responseJson);
-      })
-      .catch((error) => {
+
+      }).catch((error) => {
         console.error(error);
       });
-  };
-
-  render() {
-    return (
-      <View style={styles.MainContainer}>
-        <Text style={styles.title}>User Registration Form</Text>
-
-        <TextInput
-          placeholder="Enter ID"
-          onChangeText={(id) =>
-            this.setState({id: id})
-          }
-          underlineColorAndroid="transparent"
-          style={styles.TextInputStyleClass}
-        />
-
-        <TextInput
-          placeholder="Enter User Name"
-          onChangeText={(people_name) =>
-            this.setState({people_name: people_name})
-          }
-          underlineColorAndroid="transparent"
-          style={styles.TextInputStyleClass}
-        />
-
-        <TextInput
-          placeholder="Enter type borrow"
-          onChangeText={(type_borrow) =>
-            this.setState({type_borrow: type_borrow})
-          }
-          underlineColorAndroid="transparent"
-          style={styles.TextInputStyleClass}
-        />
-
-        <TextInput
-          placeholder="Enter num borrow"
-          onChangeText={(num_borrow) => this.setState({num_borrow: num_borrow})}
-          underlineColorAndroid="transparent"
-          style={styles.TextInputStyleClass}
-          secureTextEntry={true}
-        />
-
-        <Button
-          title="Click Here To Register"
-          onPress={this.UserRegistrationFunction}
-          color="#2196F3"
-        />
-      </View>
-    );
+ 
+ 
   }
+ 
+  render() {
+    
+    return (
+      <ImageBackground
+      source={require('D:/application/WUbadminton/Image/back07.png')}
+      style={{flex: 1, resizeMode: 'cover'}}>
+    
+    <ScrollView>
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Student ID :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Student ID "
+          onChangeText={TextInputcustomerID => this.setState({TextInputcustomerID})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+    </View>
+    </View>
+    
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Equipment Name :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+       placeholder="Equipment Name"
+        onChangeText={TextInputName => this.setState({TextInputName})}
+        underlineColorAndroid='transparent'
+        style={styles.TextInputStyleClass}
+        />
+
+    </View>
+
+    </View>
+    
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Count :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Count"
+          onChangeText={TextInputNum => this.setState({TextInputNum})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+    </View>   
+
+    </View>
+    
+    
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Time :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Time"
+          onChangeText={TextInputTime => this.setState({TextInputTime})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+
+    </View>
+    
+    </View>  
+
+    <View>
+    <Text  style={{
+                fontSize: 20,
+                marginTop: 20,
+                paddingBottom: 10,
+                marginLeft:20,
+                color: '#5e3881',
+              }}>
+            Date :
+            </Text> 
+    <View style={{
+              backgroundColor: 'white',
+              textAlign: 'center',
+              minHeight: 5,
+              minWidth: 5,
+              elevation: 50,
+              borderRadius: 10,
+              fontSize: 20,
+              marginTop: 5,
+              marginLeft: 15,
+              marginRight: 15,
+              color: '#5e3881',
+            }}>
+    <TextInput
+          placeholder="Date"
+          onChangeText={TextInputTeleDate => this.setState({TextInputTeleDate})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+        />
+      
+    </View>
+    </View>
+        
+     <View style={[
+              {width: '95%', borderRadius: 30, margin: 10, marginTop: 20},
+            ]}>
+      <Button title="Confirm" onPress={this.InsertDataToServer} color="#5e3881" />
+    </View>   
+
+    </ScrollView>
+
+      
+      </ImageBackground>    
+    );
+    
+  }
+  
 }
-
 const styles = StyleSheet.create({
-  MainContainer: {
-    justifyContent: 'center',
-    flex: 1,
-    margin: 10,
-  },
+ 
 
-  TextInputStyleClass: {
-    textAlign: 'center',
-    marginBottom: 7,
-    height: 40,
-    borderWidth: 1,
-    borderColor: '#2196F3',
-    borderRadius: 5,
-  },
 
-  title: {
-    fontSize: 22,
-    color: '#009688',
-    textAlign: 'center',
-    marginBottom: 15,
-  },
+
+
+TextInputStyleClass: {
+
+  fontSize: 20,
+  marginTop: 10,
+  paddingBottom: 10,
+  color: '#5e3881',
+ 
+// Set border Radius.
+ //borderRadius: 10 ,
+}
+ 
 });
-// /* This is an Login Registration example from https://aboutreact.com/ */
-// /* https://aboutreact.com/react-native-login-and-signup/ */
-
-// //Import React
-// import React from 'react';
-// import {Component} from 'react';
-
-// //Import all required component
-// import {View, Text, Picker, ImageBackground, Button} from 'react-native';
-
-// export default class Rebad extends Component {
-//   constructor() {
-//     super();
-//     this.state = {selectedLabel: ''};
-//   }
-//   Show = (value) => {
-//     alert(value);
-//     this.setState({selectedLabel: value});
-//   };
-//   render() {
-//     return (
-//       <ImageBackground
-//         source={require('D:/application/WUbadminton/Image/back07.png')}
-//         style={{flex: 1, resizeMode: 'cover'}}>
-//         <View>
-//           <View
-//             style={{
-//               backgroundColor: 'white',
-//               textAlign: 'center',
-//               minHeight: 10,
-//               minWidth: 10,
-//               elevation: 50,
-//               borderRadius: 20,
-//               fontSize: 20,
-//               marginTop: 15,
-//               marginLeft: 15,
-//               marginRight: 15,
-//               color: '#5e3881',
-//             }}>
-//             <Text
-//               style={{
-//                 fontSize: 20,
-//                 marginTop: 20,
-//                 paddingBottom: 10,
-//                 color: '#5e3881',
-//               }}>
-//               {' '}
-//               อุปกรณ์ที่ต้องการคืน :{' '}
-//             </Text>
-//             <Picker
-//               selectedValue={this.state.selectedLabel}
-//               onValueChange={this.Show.bind()}>
-//               <Picker.Item
-//                 label="กรุณาเลือกอุปกรณ์ที่ต้องการคืน"
-//                 value="กรุณาเลือกอุปกรณ์ที่ต้องการคืน"></Picker.Item>
-//               <Picker.Item
-//                 label="ไม้แบดมินตัน"
-//                 value="ไม้แบดมินตัน"></Picker.Item>
-//               <Picker.Item label="ลูกเปตอง" value="ลูกเปตอง"></Picker.Item>
-//               <Picker.Item
-//                 label="ลูกแกนเปตอง"
-//                 value="ลูกแกนเปตอง"></Picker.Item>
-//             </Picker>
-//           </View>
-
-//           <View
-//             style={{
-//               backgroundColor: 'white',
-//               textAlign: 'center',
-//               minHeight: 10,
-//               minWidth: 10,
-//               elevation: 50,
-//               borderRadius: 20,
-//               fontSize: 20,
-//               marginTop: 15,
-//               marginLeft: 15,
-//               marginRight: 15,
-//               color: '#5e3881',
-//             }}>
-//             <Text
-//               style={{
-//                 fontSize: 20,
-//                 marginTop: 20,
-//                 paddingBottom: 10,
-//                 color: '#5e3881',
-//               }}>
-//               {' '}
-//               จำนวนที่ต้องการคืน (ชุด) :{' '}
-//             </Text>
-//             <Picker
-//               selectedValue={this.state.selectedLabel}
-//               onValueChange={this.Show.bind()}>
-//               <Picker.Item label="1" value="1 ชุด"></Picker.Item>
-//               <Picker.Item label="2" value="2 ชุด"></Picker.Item>
-//               <Picker.Item label="3" value="3 ชุด"></Picker.Item>
-//               <Picker.Item label="4" value="4 ชุด"></Picker.Item>
-//               <Picker.Item label="5" value="5 ชุด"></Picker.Item>
-//               <Picker.Item label="6" value="6 ชุด"></Picker.Item>
-//             </Picker>
-//           </View>
-
-//           <View
-//             style={[
-//               {width: '95%', borderRadius: 30, margin: 10, marginTop: 20},
-//             ]}>
-//             <Button
-//               title="ตกลง"
-//               color="#5e3881"
-//               onPress={() => navigation.navigate('')}
-//             />
-//           </View>
-//         </View>
-//       </ImageBackground>
-//     );
-//   }
-// }
+AppRegistry.registerComponent('MainProject', () => MainProject);

@@ -39,8 +39,8 @@ const CustomSidebarMenu = (props) => {
       screenToNavigate: 'Borrow',
     },
     {
-      navOptionName: 'Rebad',
-      screenToNavigate: 'Rebad',
+      navOptionName: 'Receive',
+      screenToNavigate: 'Receive',
     },
     {
       navOptionName: 'Schedule',
