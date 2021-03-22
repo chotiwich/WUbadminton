@@ -22,7 +22,7 @@ export default class SettingScreen extends Component {
   }
 
   componentDidMount() {
-    return fetch('http://172.18.132.133/WUBadminton/BorrowList.php')
+    return fetch('http://10.113.3.147/WUBadminton/BorrowList.php')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({data: responseJson});

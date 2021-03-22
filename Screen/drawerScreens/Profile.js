@@ -23,7 +23,7 @@ export default class SettingScreen extends Component {
   }
 
   componentDidMount() {
-    return fetch('http://172.20.10.5/wucourt/show_customer_court_equipment.php')
+    return fetch('http://10.113.3.147/wucourt/show_customer_court_equipment.php')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({data: responseJson});

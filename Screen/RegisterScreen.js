@@ -34,7 +34,7 @@ constructor(props) {
 
 
 
-fetch('http://172.20.10.5/wucourt/Register.php', {
+fetch('http://10.113.3.1470/wucourt/Register.php', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',

@@ -26,7 +26,7 @@ constructor(props) {
     const { TextInputDate }  = this.state ;
 
 
-fetch('http://172.20.10.5/wucourt/booking_court.php', {
+fetch('http://10.113.3.147/wucourt/booking_court.php', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',

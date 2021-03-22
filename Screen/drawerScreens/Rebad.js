@@ -29,7 +29,7 @@ constructor(props) {
     const { TextInputcustomerID }  = this.state ;
 
 
-fetch('http://172.20.10.5/wucourt/update_equipment.php', {
+fetch('http://10.113.3.147/wucourt/update_equipment.php', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
